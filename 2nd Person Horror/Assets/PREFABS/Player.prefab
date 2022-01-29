@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5982051376415285462}
   - component: {fileID: 5982051376415285463}
   - component: {fileID: 5982051376415285460}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Red_dot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -112,7 +112,7 @@ GameObject:
   - component: {fileID: 5982051376811726574}
   - component: {fileID: 5982051377083610447}
   - component: {fileID: 5982051377083610446}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -161,7 +161,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d5a19842679c6e94e838518f4258efa7, type: 2}
+  - {fileID: 2100000, guid: 4f343c7833a2a2d479344c5b54d5e901, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -237,7 +237,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d77ba926d6143e34cbd1d84a33733401, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isLoaded: 0
+  canBeUsed: 0
   projectile: {fileID: 7394043220681039908, guid: a34bcec1457405d45a64e26abfd4c2e8, type: 3}
 --- !u!114 &5982051377083610446
 MonoBehaviour:
@@ -251,3 +251,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 414dc8844d147274ab9a85b1fb7b51ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canCharge: 0
+  thereIsGun: 0
+  gunIsReady: 0
+  maxTime: 5
+  timer: 0
