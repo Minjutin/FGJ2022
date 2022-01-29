@@ -4,15 +4,10 @@ using UnityEngine;
 
 public class Projectile_script : MonoBehaviour
 {
+    public float movementSpeed = 30f;
 
-    public float movementSpeed = 20f;
-
-    void Update()
+    void Update ()
     {
-
-        //projectile movement.
-
-
     }
 
 }
