@@ -14,13 +14,10 @@ public class PathfindingManager : MonoBehaviour
         monster = FindObjectOfType<MonsterPathfinding>();
     }
 
-    void Update()
-    {
-        
-    }
 
     public void UpdatePreviousTarget(GameObject _reachedTarget)
     {
+        Debug.Log("Previous Target: " + _reachedTarget);
         previousTarget = _reachedTarget;
     }
 
@@ -28,6 +25,8 @@ public class PathfindingManager : MonoBehaviour
     {
         // Gives permission if possible next Target isn't previousTarget
         bool permissionToContinue;
+
+        Debug.Log("PreviousTarget: " + previousTarget);
 
         // Compare possible nextTarget and previousTarget
         if (previousTarget == _previousTarget)
