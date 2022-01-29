@@ -65,7 +65,12 @@ public class MonsterPathfinding : MonoBehaviour
     private bool HasReachedCurrentTarget()
     {
         bool targetReached = true;
-        if (transform.position == currentTargetPos)
+
+        // Gets the positions of both Self and Target without the Y coordinate
+        var selfPos = new Vector3(transform.position.x, 0f, transform.position.z);
+        var targetPos = new Vector3(currentTarget.transform.position.x, 0f, currentTarget.transform.position.z);
+
+        if (selfPos == targetPos)
         {
             targetReached = true;
         }
