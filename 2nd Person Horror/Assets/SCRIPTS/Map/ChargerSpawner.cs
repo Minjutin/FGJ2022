@@ -10,9 +10,9 @@ public class ChargerSpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        int whichRoom = Random.Range(1, rooms.Count);
+        int whichRoom = Random.Range(0, rooms.Count);
         Debug.Log(whichRoom);
-        Instantiate(chargerRoom, rooms[whichRoom-1].transform.position, rooms[whichRoom - 1].transform.rotation);
+        Instantiate(chargerRoom, rooms[whichRoom-1].transform.position, rooms[whichRoom].transform.rotation);
     }
 
 }
