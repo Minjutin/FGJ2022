@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5982051376415285462}
   - component: {fileID: 5982051376415285463}
   - component: {fileID: 5982051376415285460}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Red_dot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -112,7 +112,7 @@ GameObject:
   - component: {fileID: 5982051376811726574}
   - component: {fileID: 5982051377083610447}
   - component: {fileID: 5982051377083610446}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -254,4 +254,5 @@ MonoBehaviour:
   canCharge: 0
   thereIsGun: 0
   gunIsReady: 0
+  maxTime: 5
   timer: 0
