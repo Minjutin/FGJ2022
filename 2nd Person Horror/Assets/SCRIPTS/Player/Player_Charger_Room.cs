@@ -14,7 +14,7 @@ public class Player_Charger_Room : MonoBehaviour
     public bool gunIsReady = false;
 
     //timer variables.
-    private static int maxTime = 5;
+    public int maxTime = 5;
     public int timer;
 
     //getting stuff from Gun-script.
