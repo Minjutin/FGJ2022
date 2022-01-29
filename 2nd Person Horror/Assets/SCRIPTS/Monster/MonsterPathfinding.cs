@@ -10,6 +10,7 @@ public class MonsterPathfinding : MonoBehaviour
     [Header("Targeting")]
     public Vector3 currentTargetPos;  //<-- SAME AS BELOW
     public GameObject currentTarget;
+    private GameObject candidateTarget = null;
     [SerializeField] GameObject startingTarget;
     public bool shouldIMove;
 
@@ -53,10 +54,36 @@ public class MonsterPathfinding : MonoBehaviour
         // Check if Location of Monster and pathway Target is the same
         if (HasReachedCurrentTarget())
         {
-            pathfindingManager.UpdatePreviousTarget(currentTarget);
 
             // Get the next Target
-            currentTarget = currentTarget.GetComponent<Target>().GiveNextTarget();
+            //currentTarget = currentTarget.GetComponent<Target>().GiveNextTarget();
+
+            //
+
+            // What I want: 
+            // A loop that goes on as until it gives a next Target
+            // that is not the same as the previous one
+
+            // Compare target list's chosen Target == previousTarget
+            bool newTargetFound = false;
+            while (!newTargetFound)
+            {
+                candidateTarget = currentTarget.GetComponent<Target>().GiveNextTarget();
+                var previousTarget = pathfindingManager.GetPreviousTarget();
+                if (candidateTarget != previousTarget)
+                {
+                    newTargetFound = true;
+
+                    Debug.Log("New Target Found!");
+                    break;
+                }
+                else { newTargetFound = false; }
+            }
+            Debug.Log("Doing the stuff outside while loop");
+            pathfindingManager.UpdatePreviousTarget(currentTarget);
+
+            //
+
             currentTargetPos = currentTarget.transform.position;
         }
 

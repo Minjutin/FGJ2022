@@ -20,6 +20,11 @@ public class PathfindingManager : MonoBehaviour
         previousTarget = _reachedTarget;
     }
 
+    public GameObject GetPreviousTarget()
+    {
+        return previousTarget;
+    }
+
     public bool CheckIfSameTargetAsBefore(GameObject _previousTarget)
     {
         // Gives permission if possible next Target isn't previousTarget
@@ -34,7 +39,6 @@ public class PathfindingManager : MonoBehaviour
         {
             permissionToContinue = true;
         }
-        Debug.Log("permission: " + permissionToContinue);
 
         return permissionToContinue;
     }

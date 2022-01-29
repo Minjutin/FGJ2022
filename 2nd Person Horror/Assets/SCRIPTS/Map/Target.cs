@@ -23,11 +23,12 @@ public class Target : MonoBehaviour
 
 
         _nextTarget = nextTargets[Random.Range(0, nextTargets.Length)];
-        if (pathManager.CheckIfSameTargetAsBefore(_nextTarget))
-        {
-            // Loop again
-            GiveNextTarget();
-        }
+        // Crasher loop below? DO NOT USE
+        //if (pathManager.CheckIfSameTargetAsBefore(_nextTarget))
+        //{
+        //    // Loop again
+        //    GiveNextTarget();
+        //}
 
 
 
