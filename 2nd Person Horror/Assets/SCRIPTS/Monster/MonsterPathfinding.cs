@@ -5,8 +5,7 @@ using UnityEngine.AI;
 
 public class MonsterPathfinding : MonoBehaviour
 {
-    private NavMeshAgent agent;
-    private PathfindingManager pathfindingManager;
+    public NavMeshAgent agent;
     [Header("Targeting")]
     public Vector3 currentTargetPos;  //<-- SAME AS BELOW
     public GameObject currentTarget;
@@ -15,13 +14,12 @@ public class MonsterPathfinding : MonoBehaviour
 
     // Muuttujat
     [Header("Variables")]
-    [SerializeField] float targetingTimer = 0.1f;
+    private float targetingTimer = 0.5f;
     public bool timeForTargetCheck = true;
 
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-        pathfindingManager = FindObjectOfType<PathfindingManager>();
 
         // Sets the first Target up
         currentTarget = startingTarget;
@@ -49,15 +47,11 @@ public class MonsterPathfinding : MonoBehaviour
     IEnumerator CheckTargeting()
     {
         timeForTargetCheck = false;
+        Debug.Log("targeting");
 
         // Check if Location of Monster and pathway Target is the same
         if (HasReachedCurrentTarget())
         {
-
-
-            // Add current Target to list of previous Target(s)
-            pathfindingManager.UpdatePreviousTarget(currentTarget);
-
             // Get the next Target
             currentTarget = currentTarget.GetComponent<Target>().GiveNextTarget();
             currentTargetPos = currentTarget.transform.position;
