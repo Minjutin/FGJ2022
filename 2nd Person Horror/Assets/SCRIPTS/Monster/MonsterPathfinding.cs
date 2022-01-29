@@ -19,6 +19,15 @@ public class MonsterPathfinding : MonoBehaviour
     [SerializeField] float targetingTimer = 0.1f;
     public bool timeForTargetCheck = true;
 
+    [Header("Hunting")]
+    [SerializeField] GameObject player;
+    private Vector3 lastKnownPlayerPosition;
+
+    [SerializeField] bool isOnSight = false;
+    [SerializeField] bool isHunting;
+    [SerializeField] float normalSpeed = 3.5f;
+    [SerializeField] float huntingSpeed = 9f;
+
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -27,12 +36,17 @@ public class MonsterPathfinding : MonoBehaviour
         // Sets the first Target up
         currentTarget = startingTarget;
         currentTargetPos = startingTarget.transform.position;
+
+        // Hunting
+        isHunting = false;
     }
 
 
     void Update()
     {
+        //CheckIfHunting();
         Move();
+
         if (timeForTargetCheck)
         {
             StartCoroutine(CheckTargeting());
@@ -52,39 +66,48 @@ public class MonsterPathfinding : MonoBehaviour
         timeForTargetCheck = false;
 
         // Check if Location of Monster and pathway Target is the same
-        if (HasReachedCurrentTarget())
+        if (!isHunting)
         {
 
-            // Get the next Target
-            //currentTarget = currentTarget.GetComponent<Target>().GiveNextTarget();
-
-            //
-
-            // What I want: 
-            // A loop that goes on as until it gives a next Target
-            // that is not the same as the previous one
-
-            // Compare target list's chosen Target == previousTarget
-            bool newTargetFound = false;
-            while (newTargetFound == false)
+            if (HasReachedCurrentTarget())
             {
-                candidateTarget = currentTarget.GetComponent<Target>().GiveNextTarget();
-                var previousTarget = pathfindingManager.GetPreviousTarget();
-                if (candidateTarget != previousTarget)
+                // Compare target list's chosen Target == previousTarget
+                bool newTargetFound = false;
+                while (newTargetFound == false)
                 {
-                    newTargetFound = true;
+                    candidateTarget = currentTarget.GetComponent<Target>().GiveNextTarget();
+                    var previousTarget = pathfindingManager.GetPreviousTarget();
+                    if (candidateTarget != previousTarget)
+                    {
+                        newTargetFound = true;
 
-                    break;
+                        break;
+                    }
+                    else { newTargetFound = false; }
                 }
-                else { newTargetFound = false; }
+
+                pathfindingManager.UpdatePreviousTarget(currentTarget);
+
+                // Sets up the next Target
+                currentTarget = candidateTarget;
+
+                currentTargetPos = currentTarget.transform.position;
             }
-
-            pathfindingManager.UpdatePreviousTarget(currentTarget);
-
-            // Sets up the next Target
-            currentTarget = candidateTarget;
-
-            currentTargetPos = currentTarget.transform.position;
+        }
+        else
+        {
+            // Hunting targeting here
+            if (!HasReachedCurrentTarget())
+            {
+                //currentTarget = null;         <-- Aactivate later
+                currentTargetPos = lastKnownPlayerPosition;
+            }
+            else
+            {
+                // Start wandering again
+                currentTarget = startingTarget;
+                currentTargetPos = startingTarget.transform.position; // <-- Temporary reset
+            }
         }
 
         yield return new WaitForSeconds(targetingTimer);
@@ -97,7 +120,9 @@ public class MonsterPathfinding : MonoBehaviour
 
         // Gets the positions of both Self and Target without the Y coordinate
         var selfPos = new Vector3(transform.position.x, 0f, transform.position.z);
-        var targetPos = new Vector3(currentTarget.transform.position.x, 0f, currentTarget.transform.position.z);
+
+        //var targetPos = new Vector3(currentTarget.transform.position.x, 0f, currentTarget.transform.position.z); // <-- Works
+        var targetPos = new Vector3(currentTargetPos.x, 0f, currentTargetPos.z);
 
         if (selfPos == targetPos)
         {
@@ -105,5 +130,61 @@ public class MonsterPathfinding : MonoBehaviour
         }
         else { targetReached = false; }
         return targetReached;
+    }
+
+    private void CheckIfHunting()
+    {
+        // If Aggro/See Player
+        //  -> Enter HuntingMode()      // Higher speed, PlayerPos currentTarget
+        //else
+        //  -> Exit HuntingMode()       // Normal speed, last seen PlayerPos currentTarget,
+        //                                  && -> go back on rails
+        if (isHunting)
+        {
+            // Check If Player still on sight
+            // public bool blabala()
+
+            //if (yes visible)
+            //        { keep hunting}
+            //else (Start oh no I lsot track of Player protocol.com)
+
+            // Check if Player still on sight PLACEHOLDER
+            if (isOnSight)
+            {
+                // Keep hunting
+                lastKnownPlayerPosition = player.transform.position;
+            }
+            else
+            {
+                LostSightOfPlayer();
+                // Go check last place of sighting
+                // aka
+                // SearchLastKnownLocation
+            }
+
+        }
+
+    }
+
+    private void EnterHuntingMode()
+    {
+        isHunting = true;
+
+        // Change Monster Speed to higher
+    }
+
+    private void ExitHuntingMode()
+    {
+        isHunting = false;
+        // Change Monster speed to normal
+
+    }
+
+    private void LostSightOfPlayer()
+    {
+        // Keep the last location
+        var lastLocation = player.transform.position;
+        currentTargetPos = lastLocation;
+
     }
 }
