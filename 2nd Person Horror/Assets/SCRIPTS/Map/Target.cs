@@ -5,6 +5,7 @@ using UnityEngine;
 public class Target : MonoBehaviour
 {
     Vector3 selfPoint;
+    PathfindingManager pathManager = null;
 
     [Header("Adjacent Targets")]
     public GameObject[] nextTargets;
@@ -12,12 +13,27 @@ public class Target : MonoBehaviour
     void Start()
     {
         selfPoint = transform.position;
+        pathManager = FindObjectOfType<PathfindingManager>();
     }
 
-    public Vector3 GiveNextTarget()
+    public GameObject GiveNextTarget()
     {
-        new Vector3 next;
-        return nextTargets;
+        Debug.Log("Giving next target!");
+
+        GameObject _nextTarget;
+
+        _nextTarget = nextTargets[Random.Range(0, nextTargets.Length)];
+        if (!pathManager.CheckIfSameTargetAsBefore(_nextTarget))
+        {
+            // Loop again
+            GiveNextTarget();
+        }
+
+        // OLD VECTOR3 Return code
+        //Vector3 nextTargetPos = _nextTarget.transform.position;
+        //return nextTargetPos;
+
+        return _nextTarget;
     }
 
 
