@@ -14,10 +14,6 @@ public class PathfindingManager : MonoBehaviour
         monster = FindObjectOfType<MonsterPathfinding>();
     }
 
-    void Update()
-    {
-        
-    }
 
     public void UpdatePreviousTarget(GameObject _reachedTarget)
     {
@@ -38,6 +34,7 @@ public class PathfindingManager : MonoBehaviour
         {
             permissionToContinue = true;
         }
+        Debug.Log("permission: " + permissionToContinue);
 
         return permissionToContinue;
     }
