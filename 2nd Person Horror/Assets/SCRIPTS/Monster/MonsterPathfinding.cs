@@ -44,7 +44,7 @@ public class MonsterPathfinding : MonoBehaviour
 
     void Update()
     {
-        //CheckIfHunting();
+        CheckIfHunting();
         Move();
 
         if (timeForTargetCheck)
@@ -96,14 +96,20 @@ public class MonsterPathfinding : MonoBehaviour
         }
         else
         {
+            // IF HUNTING
+            currentTargetPos = lastKnownPlayerPosition;
+
             // Hunting targeting here
             if (!HasReachedCurrentTarget())
             {
                 //currentTarget = null;         <-- Aactivate later
                 currentTargetPos = lastKnownPlayerPosition;
             }
-            else
+            else // IF Monster has reached last known Player Position
             {
+                // Stop Hunting
+                isHunting = false;
+
                 // Start wandering again
                 currentTarget = startingTarget;
                 currentTargetPos = startingTarget.transform.position; // <-- Temporary reset
@@ -141,6 +147,8 @@ public class MonsterPathfinding : MonoBehaviour
         //                                  && -> go back on rails
         if (isHunting)
         {
+
+
             // Check If Player still on sight
             // public bool blabala()
 

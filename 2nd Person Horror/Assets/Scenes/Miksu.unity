@@ -1424,6 +1424,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2080074234}
     - target: {fileID: 7464905738284131504, guid: bbcd0afd1f28afd42a2a37c372dbf45e, type: 3}
+      propertyPath: isOnSight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7464905738284131504, guid: bbcd0afd1f28afd42a2a37c372dbf45e, type: 3}
       propertyPath: startingTarget
       value: 
       objectReference: {fileID: 1751101210}
