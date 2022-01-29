@@ -66,7 +66,7 @@ public class MonsterPathfinding : MonoBehaviour
 
             // Compare target list's chosen Target == previousTarget
             bool newTargetFound = false;
-            while (!newTargetFound)
+            while (newTargetFound == false)
             {
                 candidateTarget = currentTarget.GetComponent<Target>().GiveNextTarget();
                 var previousTarget = pathfindingManager.GetPreviousTarget();
@@ -82,7 +82,8 @@ public class MonsterPathfinding : MonoBehaviour
             Debug.Log("Doing the stuff outside while loop");
             pathfindingManager.UpdatePreviousTarget(currentTarget);
 
-            //
+            // Sets up the next Target
+            currentTarget = candidateTarget;
 
             currentTargetPos = currentTarget.transform.position;
         }
