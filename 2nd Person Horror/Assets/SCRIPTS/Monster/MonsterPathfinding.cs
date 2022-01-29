@@ -74,12 +74,11 @@ public class MonsterPathfinding : MonoBehaviour
                 {
                     newTargetFound = true;
 
-                    Debug.Log("New Target Found!");
                     break;
                 }
                 else { newTargetFound = false; }
             }
-            Debug.Log("Doing the stuff outside while loop");
+
             pathfindingManager.UpdatePreviousTarget(currentTarget);
 
             // Sets up the next Target
