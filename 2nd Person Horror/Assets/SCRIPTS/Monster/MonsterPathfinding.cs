@@ -138,12 +138,13 @@ public class MonsterPathfinding : MonoBehaviour
                 // Do the search (look around animation) for a duration
 
                 // Stop Hunting
-                isHunting = false;
+                ExitHuntingMode();
+                //isHunting = false;
 
-                // Start wandering again
+                //// Start wandering again
 
-                currentTarget = startingTarget;
-                currentTargetPos = startingTarget.transform.position; // <-- Temporary reset
+                //currentTarget = startingTarget;
+                //currentTargetPos = startingTarget.transform.position; // <-- Temporary reset
             }
         }
 
@@ -255,6 +256,8 @@ public class MonsterPathfinding : MonoBehaviour
 
     private void ExitHuntingMode()
     {
+        isHunting = false;
+
         // Change Monster speed to normal
         agent.speed = normalSpeed;
 
