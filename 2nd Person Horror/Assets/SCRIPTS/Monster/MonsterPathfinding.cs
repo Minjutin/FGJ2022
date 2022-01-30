@@ -89,7 +89,6 @@ public class MonsterPathfinding : MonoBehaviour
             {
                 // Compare target list's chosen Target == previousTarget
                 bool newTargetFound = false;
-                Debug.Log("Has reached current Target");
                 while (newTargetFound == false)
                 {
                     candidateTarget = currentTarget.GetComponent<Target>().GiveNextTarget();
@@ -125,7 +124,6 @@ public class MonsterPathfinding : MonoBehaviour
             else // IF Monster has reached last known Player Position
             {
                 ExitHuntingMode();
-                Debug.Log("Has reached last known position! 1");
                 // Do the search (look around animation) for a duration
 
                 // Stop Hunting
@@ -165,7 +163,6 @@ public class MonsterPathfinding : MonoBehaviour
         if (selfPos == targetPos)
         {
             targetReached = true;
-            Debug.Log("Has reached current Target!");
         }
         else { targetReached = false; }
 
@@ -197,7 +194,6 @@ public class MonsterPathfinding : MonoBehaviour
             //Lost track of Player
             // -> check if you have reached lastKnownLocation
 
-            Debug.Log("LOST SIGHT!");
             //ExitHuntingMode();
 
             //LostSightOfPlayer();
