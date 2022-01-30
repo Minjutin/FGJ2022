@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class AttackScript : MonoBehaviour
 {
+    //[SerializeField] 
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("Hit something!");
 
         if (collision.gameObject.CompareTag("Player"))
         {
