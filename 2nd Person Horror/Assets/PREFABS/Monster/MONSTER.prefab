@@ -581,8 +581,9 @@ MonoBehaviour:
   player: {fileID: 0}
   isOnSight: 0
   isHunting: 0
-  staredownTime: 3
+  staredownTime: 1.5
   lingeringHuntTime: 5
+  stillUpdatingPlayerPos: 0
   normalSpeed: 3.5
   huntingSpeed: 9
 --- !u!114 &-121670781900650153
