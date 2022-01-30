@@ -12,9 +12,9 @@ public class Projectile_script : MonoBehaviour
         gameObject.transform.Translate(Vector3.forward * movementSpeed * Time.deltaTime);
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision other)
     {
-
+        Debug.Log("Hit");
         if (other.gameObject.CompareTag("Monster"))
         {
             gameManager = GameObject.Find("Game Manager");
