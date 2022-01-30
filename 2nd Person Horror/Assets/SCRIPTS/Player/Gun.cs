@@ -16,10 +16,17 @@ public class Gun : MonoBehaviour
         //If player decides to shoot.
         if (canBeUsed && Input.GetMouseButtonDown(0))
         {
+            //PUT LOUD SOUND HERE
             Instantiate(projectile, transform.position, Quaternion.identity);
             canBeUsed = false;
 
         }
+
+        if(!canBeUsed && Input.GetMouseButtonDown(0))
+        {
+            //PUT EMPTY SHOOT - SOUND HERE
+        }
+
     }
 
 }
