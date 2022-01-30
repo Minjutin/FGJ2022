@@ -6,10 +6,10 @@ public class AttackScript : MonoBehaviour
 {
     //[SerializeField] 
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
 
-        if (collision.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player"))
         {
             //KILL PLAYER
             Debug.Log("Player is DEAD");
