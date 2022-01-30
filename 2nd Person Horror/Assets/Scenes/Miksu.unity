@@ -314,7 +314,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2485484466491660999, guid: 843b4fb903ed6574e9f5aef4356fbdcd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.88
+      value: 30.2
       objectReference: {fileID: 0}
     - target: {fileID: 2485484466491660999, guid: 843b4fb903ed6574e9f5aef4356fbdcd, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1666,6 +1666,34 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4831110109158914066, guid: 2a86087b152942045b0d36566aceca59, type: 3}
+      propertyPath: defaultTargets.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4831110109158914066, guid: 2a86087b152942045b0d36566aceca59, type: 3}
+      propertyPath: defaultTargets.Array.data[0]
+      value: 
+      objectReference: {fileID: 1751101210}
+    - target: {fileID: 4831110109158914066, guid: 2a86087b152942045b0d36566aceca59, type: 3}
+      propertyPath: defaultTargets.Array.data[1]
+      value: 
+      objectReference: {fileID: 44648112}
+    - target: {fileID: 4831110109158914066, guid: 2a86087b152942045b0d36566aceca59, type: 3}
+      propertyPath: defaultTargets.Array.data[2]
+      value: 
+      objectReference: {fileID: 171868175}
+    - target: {fileID: 4831110109158914066, guid: 2a86087b152942045b0d36566aceca59, type: 3}
+      propertyPath: defaultTargets.Array.data[3]
+      value: 
+      objectReference: {fileID: 1013944012}
+    - target: {fileID: 4831110109158914066, guid: 2a86087b152942045b0d36566aceca59, type: 3}
+      propertyPath: defaultTargets.Array.data[4]
+      value: 
+      objectReference: {fileID: 508206569}
+    - target: {fileID: 4831110109158914066, guid: 2a86087b152942045b0d36566aceca59, type: 3}
+      propertyPath: defaultTargets.Array.data[5]
+      value: 
+      objectReference: {fileID: 114648093}
     - target: {fileID: 4831110109158914067, guid: 2a86087b152942045b0d36566aceca59, type: 3}
       propertyPath: m_RootOrder
       value: 0

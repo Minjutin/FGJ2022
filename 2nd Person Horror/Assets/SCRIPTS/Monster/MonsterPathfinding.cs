@@ -264,6 +264,14 @@ public class MonsterPathfinding : MonoBehaviour
         // Reset rail patrol
         currentTarget = startingTarget;
         currentTargetPos = startingTarget.transform.position;
+        // Randomize Reset waypoint Target
+        RandomizeWaypointTarget();
+    }
+
+    private void RandomizeWaypointTarget()
+    {
+        currentTarget = pathfindingManager.GetRandomDefaultTarget();
+        currentTargetPos = currentTarget.transform.position;
     }
 
     IEnumerator LingeringHuntStop()
@@ -275,8 +283,6 @@ public class MonsterPathfinding : MonoBehaviour
         yield return new WaitForSeconds(lingeringHuntTime);
 
         stopUpdatingPlayerPos = true;
-
-
         //ExitHuntingMode();
 
     }
