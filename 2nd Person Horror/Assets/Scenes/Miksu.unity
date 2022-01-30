@@ -721,6 +721,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5982051376415285482, guid: 8c8f677fb0303094e8ba3d9f71af2abf, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5982051376811726560, guid: 8c8f677fb0303094e8ba3d9f71af2abf, type: 3}
       propertyPath: m_Name
       value: Player
@@ -731,7 +735,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5982051376811726572, guid: 8c8f677fb0303094e8ba3d9f71af2abf, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.23
+      value: -0.08
       objectReference: {fileID: 0}
     - target: {fileID: 5982051376811726572, guid: 8c8f677fb0303094e8ba3d9f71af2abf, type: 3}
       propertyPath: m_LocalPosition.y
@@ -739,7 +743,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5982051376811726572, guid: 8c8f677fb0303094e8ba3d9f71af2abf, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 7.3
+      value: 7.48
       objectReference: {fileID: 0}
     - target: {fileID: 5982051376811726572, guid: 8c8f677fb0303094e8ba3d9f71af2abf, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1235,7 +1239,7 @@ PrefabInstance:
     - target: {fileID: 7464905738284131504, guid: bbcd0afd1f28afd42a2a37c372dbf45e, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1589526112}
     - target: {fileID: 7464905738284131504, guid: bbcd0afd1f28afd42a2a37c372dbf45e, type: 3}
       propertyPath: isOnSight
       value: 0
@@ -1248,5 +1252,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: MONSTER
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7464905738284131500, guid: bbcd0afd1f28afd42a2a37c372dbf45e, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: bbcd0afd1f28afd42a2a37c372dbf45e, type: 3}

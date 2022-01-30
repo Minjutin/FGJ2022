@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 1524798176}
   - component: {fileID: 1524798179}
   - component: {fileID: 1524798178}
-  - component: {fileID: 1524798177}
   m_Layer: 0
   m_Name: Player Graphics
   m_TagString: Untagged
@@ -28,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 1524798175}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.05000019, y: 0.442, z: 0.021755219}
-  m_LocalScale: {x: 1, y: 0.876899, z: 1}
+  m_LocalScale: {x: 1, y: 3.850113, z: 1}
   m_Children: []
   m_Father: {fileID: 5982051376811726572}
   m_RootOrder: 1
@@ -82,19 +81,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &1524798177
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1524798175}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5982051376415285482
 GameObject:
   m_ObjectHideFlags: 0
@@ -208,7 +194,7 @@ GameObject:
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 419385456094870383, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -221,7 +207,7 @@ Transform:
   m_GameObject: {fileID: 5982051376811726560}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 13.6, y: -12.9, z: 5}
-  m_LocalScale: {x: 1, y: 3.5664313, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5982051376415285461}
   - {fileID: 1524798176}
@@ -239,8 +225,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3, y: 0.8433515, z: 3}
-  m_Center: {x: 0, y: 0.4227717, z: 0}
+  m_Size: {x: 3, y: 2.3571715, z: 3}
+  m_Center: {x: 0, y: 1.1796818, z: 0}
 --- !u!54 &5982051376811726575
 Rigidbody:
   m_ObjectHideFlags: 0

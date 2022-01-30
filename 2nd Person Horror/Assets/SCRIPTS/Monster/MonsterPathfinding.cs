@@ -59,8 +59,15 @@ public class MonsterPathfinding : MonoBehaviour
     {
         if (shouldIMove)
         {
+            //if (isHunting)
+            //{
+            //    agent.SetDestination(lastKnownPlayerPosition);
+            //}
             agent.SetDestination(currentTargetPos);
         }
+
+
+        //agent.SetDestination(GetPositionWithoutY(player));
     }
 
     IEnumerator CheckTargeting()
@@ -104,7 +111,7 @@ public class MonsterPathfinding : MonoBehaviour
             // Hunting targeting here
             if (!HasReachedCurrentTarget())
             {
-                //currentTarget = null;         <-- Aactivate later
+                //currentTarget = null;        // <-- Aactivate later
                 currentTargetPos = lastKnownPlayerPosition;
             }
             else // IF Monster has reached last known Player Position
@@ -115,6 +122,7 @@ public class MonsterPathfinding : MonoBehaviour
                 isHunting = false;
 
                 // Start wandering again
+
                 currentTarget = startingTarget;
                 currentTargetPos = startingTarget.transform.position; // <-- Temporary reset
             }
@@ -129,11 +137,12 @@ public class MonsterPathfinding : MonoBehaviour
         bool targetReached = true;
 
         // Gets the positions of both Self and Target without the Y coordinate
-        var selfPos = new Vector3(transform.position.x, 0f, transform.position.z);
+        //var selfPos = new Vector3(transform.position.x, 0f, transform.position.z);
+        var selfPos = GetPositionWithoutY(gameObject);
 
         //var targetPos = new Vector3(currentTarget.transform.position.x, 0f, currentTarget.transform.position.z); // <-- Works
         //var targetPos = new Vector3(currentTargetPos.x, 0f, currentTargetPos.z);
-        var targetPos = currentTargetPos;
+        var targetPos = GetPositionWithoutY(currentTarget);
 
         if (selfPos == targetPos)
         {
@@ -141,6 +150,12 @@ public class MonsterPathfinding : MonoBehaviour
         }
         else { targetReached = false; }
         return targetReached;
+    }
+
+    private Vector3 GetPositionWithoutY(GameObject pos)
+    {
+        var desiredPos = new Vector3(pos.transform.position.x, 0f, pos.transform.position.z);
+        return desiredPos;
     }
 
     private void CheckIfHunting()
@@ -151,6 +166,7 @@ public class MonsterPathfinding : MonoBehaviour
         if (isOnSight && isHunting)
         {
             isOnSight = true;
+            lastKnownPlayerPosition = GetPositionWithoutY(player);
         }
         else if (isOnSight && !isHunting)
         {
@@ -160,6 +176,8 @@ public class MonsterPathfinding : MonoBehaviour
         {
             //Lost track of Player
             // -> check if you have reached lastKnownLocation
+
+            //LostSightOfPlayer();
         }
 
     }
@@ -186,6 +204,8 @@ public class MonsterPathfinding : MonoBehaviour
 
     private void LostSightOfPlayer()
     {
+
+
         // Do the search animation
 
         // Wait for a bit
