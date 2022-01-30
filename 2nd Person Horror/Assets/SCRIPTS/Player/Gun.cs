@@ -6,9 +6,18 @@ public class Gun : MonoBehaviour
 {
     [SerializeField] GameObject gunPoint;
 
+    [SerializeField] Vector3 audioPos;
+    [SerializeField] AudioClip emptyClick;
+    [SerializeField] AudioClip bangBang;
+
     public bool canBeUsed = false;
 
     public GameObject projectile;
+
+    private void Start()
+    {
+        audioPos = FindObjectOfType<AudioManager>().gameObject.transform.position;
+    }
 
     // Update is called once per frame
     void Update()
@@ -19,6 +28,7 @@ public class Gun : MonoBehaviour
         {
             Instantiate(projectile, gunPoint.transform.position, gunPoint.transform.rotation);
             //PUT LOUD SOUND HERE
+            AudioSource.PlayClipAtPoint(bangBang, audioPos);
 
             canBeUsed = false;
 
@@ -27,6 +37,7 @@ public class Gun : MonoBehaviour
         if(!canBeUsed && Input.GetMouseButtonDown(0))
         {
             //PUT EMPTY SHOOT - SOUND HERE
+            AudioSource.PlayClipAtPoint(emptyClick, audioPos);
         }
 
     }
