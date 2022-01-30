@@ -140,37 +140,7 @@ public class MonsterPathfinding : MonoBehaviour
 
     private void CheckIfHunting()
     {
-        // If Aggro/See Player
-        //  -> Enter HuntingMode()      // Higher speed, PlayerPos currentTarget
-        //else
-        //  -> Exit HuntingMode()       // Normal speed, last seen PlayerPos currentTarget,
-        //                                  && -> go back on rails
-        if (isHunting)
-        {
-
-
-            // Check If Player still on sight
-            // public bool blabala()
-
-            //if (yes visible)
-            //        { keep hunting}
-            //else (Start oh no I lsot track of Player protocol.com)
-
-            // Check if Player still on sight PLACEHOLDER
-            if (isOnSight)
-            {
-                // Keep hunting
-                lastKnownPlayerPosition = player.transform.position;
-            }
-            else
-            {
-                LostSightOfPlayer();
-                // Go check last place of sighting
-                // aka
-                // SearchLastKnownLocation
-            }
-
-        }
+        
 
     }
 
