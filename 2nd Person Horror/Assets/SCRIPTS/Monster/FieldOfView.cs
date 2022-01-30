@@ -20,10 +20,13 @@ public class FieldOfView : MonoBehaviour
     [SerializeField] GameObject player;
     [SerializeField] GameObject[] waypointTargets;
 
+    
+
 
     // Start is called before the first frame update
     void Start()
     {
+        
         StartCoroutine("FindTargetsWithDelay", .2f);
 
         //Invoke("AddWaypoints", 0.5f); // <-- Later functionality for waypoint sighting

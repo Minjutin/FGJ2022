@@ -5,18 +5,20 @@ using UnityEngine;
 public class Projectile_script : MonoBehaviour
 {
     public float movementSpeed = 30f;
+    GameObject gameManager;
 
     void Update ()
     {
         gameObject.transform.Translate(Vector3.forward * movementSpeed * Time.deltaTime);
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision other)
     {
-
+        Debug.Log("Hit");
         if (other.gameObject.CompareTag("Monster"))
         {
-            //Kill Monster
+            gameManager = GameObject.Find("Game Manager");
+            gameManager.GetComponent<GameOver>().playerDead = true;
         }
     }
 

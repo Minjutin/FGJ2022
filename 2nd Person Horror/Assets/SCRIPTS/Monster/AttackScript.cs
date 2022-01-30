@@ -5,14 +5,16 @@ using UnityEngine;
 public class AttackScript : MonoBehaviour
 {
     //[SerializeField] 
+    GameObject gameManager;
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision other)
     {
+            Debug.Log("Player is DEAD");
 
         if (other.gameObject.CompareTag("Player"))
         {
-            //KILL PLAYER
-            Debug.Log("Player is DEAD");
+            gameManager = GameObject.Find("Game Manager");
+            gameManager.GetComponent<GameOver>().playerDead = true;
         }
     }
 }
