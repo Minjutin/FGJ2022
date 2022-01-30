@@ -226,6 +226,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &342372770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 342372767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c976a2f1fe16d684da571a98e64c98e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerGraphics: {fileID: 342372767}
 --- !u!1 &449151124 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6608244357356909797, guid: af9194b2706aec94b87b503740638efb, type: 3}
@@ -436,7 +449,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8627147536249649701, guid: 10231ddf6a6e8cf4c929ff019ee94dec, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8627147536249649721, guid: 10231ddf6a6e8cf4c929ff019ee94dec, type: 3}
       propertyPath: m_Pivot.x
