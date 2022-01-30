@@ -7,11 +7,11 @@ public class AttackScript : MonoBehaviour
     //[SerializeField] 
     GameObject gameManager;
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
             Debug.Log("Player is DEAD");
 
-        if (collision.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player"))
         {
             gameManager = GameObject.Find("Game Manager");
             gameManager.GetComponent<GameOver>().playerDead = true;
