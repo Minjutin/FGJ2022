@@ -18,6 +18,7 @@ public class Gun : MonoBehaviour
         {
             Instantiate(projectile, transform.position, Quaternion.identity);
             canBeUsed = false;
+
         }
     }
 
