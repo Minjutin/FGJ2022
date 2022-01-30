@@ -8,6 +8,7 @@ public class Projectile_script : MonoBehaviour
 
     void Update ()
     {
+        gameObject.transform.Translate(Vector3.forward * movementSpeed * Time.deltaTime);
     }
 
 }
