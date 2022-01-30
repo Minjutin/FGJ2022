@@ -1008,6 +1008,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1581910412}
     - target: {fileID: 5982051377083610447, guid: 8c8f677fb0303094e8ba3d9f71af2abf, type: 3}
+      propertyPath: gunPoint
+      value: 
+      objectReference: {fileID: 567911485}
+    - target: {fileID: 5982051377083610447, guid: 8c8f677fb0303094e8ba3d9f71af2abf, type: 3}
       propertyPath: canBeUsed
       value: 1
       objectReference: {fileID: 0}
