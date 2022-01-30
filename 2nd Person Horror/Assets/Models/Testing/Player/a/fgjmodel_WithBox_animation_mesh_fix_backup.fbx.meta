@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 70db9ac2d8009a44aac5c90aeeccde08
+guid: 8fe548b5e5e6d8d43ac0e4b27295b6e5
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable:
@@ -7,8 +7,14 @@ ModelImporter:
       74: -4449717305648701825
     second: Armature|0TPose
   - first:
+      74: 5449073193131188545
+    second: Armature|CubeAction
+  - first:
       74: 954044186031655104
     second: Armature|gunAction
+  - first:
+      74: -5617509075815682150
+    second: Armature|gunAction.001
   - first:
       74: -8945691123924629249
     second: Armature|Idle
@@ -21,12 +27,6 @@ ModelImporter:
   - first:
       74: -7784454408480590010
     second: Armature|Walk.Gun
-  - first:
-      74: 7141586404372575479
-    second: gun|gunAction
-  - first:
-      74: -4399005407344549664
-    second: gun|Walk.Gun
   externalObjects: {}
   materials:
     materialImportMode: 2
