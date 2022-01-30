@@ -1,11 +1,20 @@
 fileFormatVersion: 2
-guid: 5716bcb77d69f7e40a59ff8a3a783d8a
+guid: efbbd0168c0215645ad578fbb11ce0ce
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable:
   - first:
       74: -4449717305648701825
     second: Armature|0TPose
+  - first:
+      74: -8945691123924629249
+    second: Armature|Idle
+  - first:
+      74: -4436488049175187994
+    second: Armature|Idle.Gun
+  - first:
+      74: -4206947841845660340
+    second: Armature|Idle.Gun.DontUse
   externalObjects: {}
   materials:
     materialImportMode: 2
