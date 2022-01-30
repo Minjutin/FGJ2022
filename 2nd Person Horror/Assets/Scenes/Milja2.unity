@@ -1225,6 +1225,10 @@ PrefabInstance:
       propertyPath: playerModel
       value: 
       objectReference: {fileID: 342372767}
+    - target: {fileID: 5982051377083610446, guid: 8c8f677fb0303094e8ba3d9f71af2abf, type: 3}
+      propertyPath: maxTime
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 5982051377083610447, guid: 8c8f677fb0303094e8ba3d9f71af2abf, type: 3}
       propertyPath: bangBang
       value: 
