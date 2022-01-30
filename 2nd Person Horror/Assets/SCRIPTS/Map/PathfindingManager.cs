@@ -9,6 +9,9 @@ public class PathfindingManager : MonoBehaviour
     // Pit‰‰ kirjaa edellisest‰ Targetista
     GameObject previousTarget = null;
 
+    // Pit‰‰ listaa default restart Targeteista
+    [SerializeField] GameObject[] defaultTargets;
+
     void Start()
     {
         monster = FindObjectOfType<MonsterPathfinding>();
@@ -41,5 +44,11 @@ public class PathfindingManager : MonoBehaviour
         }
 
         return permissionToContinue;
+    }
+
+    public GameObject GetRandomDefaultTarget()
+    {
+        var chosenTarget = defaultTargets[Random.Range(0, defaultTargets.Length)];
+        return chosenTarget;
     }
 }
