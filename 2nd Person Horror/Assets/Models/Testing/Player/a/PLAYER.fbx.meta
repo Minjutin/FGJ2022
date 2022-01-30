@@ -1,8 +1,14 @@
 fileFormatVersion: 2
-guid: efbbd0168c0215645ad578fbb11ce0ce
+guid: d7c9981974c014b40a7cbaeb996eff73
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable:
+  - first:
+      74: -1383476187075784903
+    second: character|gunAction
+  - first:
+      74: -3299109903450031958
+    second: character|Idle.Gun
   - first:
       74: -4449717305648701825
     second: Armature|0TPose
