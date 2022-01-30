@@ -26,6 +26,15 @@ public class MonsterPathfinding : MonoBehaviour
 
     [SerializeField] bool isOnSight = false;
     [SerializeField] bool isHunting;
+
+    bool stopUpdatingPlayerPos = false;
+    bool countdownHasBegun = false;
+
+    [SerializeField] float staredownTime = 3f;
+    [SerializeField] float lingeringHuntTime = 5f;
+    public bool stillUpdatingPlayerPos = false;
+
+    [Header("Speeds")]
     [SerializeField] float normalSpeed = 3.5f;
     [SerializeField] float huntingSpeed = 9f;
 
@@ -54,12 +63,12 @@ public class MonsterPathfinding : MonoBehaviour
             StartCoroutine(CheckTargeting());
         }
 
-        if (Input.GetKeyDown(KeyCode.Space)) // MANUAL RESET
-        {
-            isHunting = false;
-            currentTarget = startingTarget;
-            currentTargetPos = startingTarget.transform.position;
-        }
+        //if (Input.GetKeyDown(KeyCode.Space)) // MANUAL RESET
+        //{
+        //    isHunting = false;
+        //    currentTarget = startingTarget;
+        //    currentTargetPos = startingTarget.transform.position;
+        //}
     }
 
     private void Move()
@@ -119,20 +128,23 @@ public class MonsterPathfinding : MonoBehaviour
             if (!HasReachedCurrentTarget())
             {
                 //currentTarget = null;        // <-- Aactivate later
+
+                // lingeringHuntTime controls the delay
                 currentTargetPos = lastKnownPlayerPosition;
             }
             else // IF Monster has reached last known Player Position
             {
-                ExitHuntingMode();
+                //ExitHuntingMode();
                 // Do the search (look around animation) for a duration
 
                 // Stop Hunting
-                isHunting = false;
+                ExitHuntingMode();
+                //isHunting = false;
 
-                // Start wandering again
+                //// Start wandering again
 
-                currentTarget = startingTarget;
-                currentTargetPos = startingTarget.transform.position; // <-- Temporary reset
+                //currentTarget = startingTarget;
+                //currentTargetPos = startingTarget.transform.position; // <-- Temporary reset
             }
         }
 
@@ -153,6 +165,7 @@ public class MonsterPathfinding : MonoBehaviour
         Vector3 targetPos;
         if (isHunting)
         {
+            // lingeringHuntTime float controls the delay for how long long after the Monster knows playerPos after sight is lost
             targetPos = lastKnownPlayerPosition;
         }
         else
@@ -166,7 +179,7 @@ public class MonsterPathfinding : MonoBehaviour
         }
         else { targetReached = false; }
 
-        
+
         return targetReached;
     }
 
@@ -183,6 +196,11 @@ public class MonsterPathfinding : MonoBehaviour
         // Check if you see the Player
         if (isOnSight && isHunting)
         {
+            stopUpdatingPlayerPos = false;
+            countdownHasBegun = false;
+            StopCoroutine(LingeringHuntStop());
+
+            // Updates the PlayerPos;
             lastKnownPlayerPosition = GetPositionWithoutY(player);
         }
         else if (isOnSight && !isHunting)
@@ -191,22 +209,46 @@ public class MonsterPathfinding : MonoBehaviour
         }
         else if (!isOnSight && isHunting)
         {
-            //Lost track of Player
-            // -> check if you have reached lastKnownLocation
 
-            //ExitHuntingMode();
+            // Keep updating the lastKnowPlayerPosition for lingeringHuntTime amount of time
+            if (!stopUpdatingPlayerPos)
+            {
+                lastKnownPlayerPosition = GetPositionWithoutY(player);
+            }
 
-            //LostSightOfPlayer();
+            // Begin countdown for how long will keep updating lastKnownPlayerPos
+            if (!countdownHasBegun)
+            {
+                StartCoroutine(LingeringHuntStop());
+            }
+
+
+
+
+            // CHECK CheckTargeting for ExitHuntingMode();
         }
 
     }
 
     private void EnterHuntingMode()
     {
+        isHunting = true;
+
+        StartCoroutine(BeginTheHunt());
+    }
+
+    IEnumerator BeginTheHunt()
+    {
+        StopCoroutine(BeginTheHunt());
+
         // Do the "staredown" animation
         // --> change the speed to minimal (agent will turn but not move fast then)
 
-        isHunting = true;
+        // Drop the speed
+        agent.speed = 0.5f;
+        yield return new WaitForSeconds(staredownTime);
+
+        // Stop the "staredown"
 
         // Change Monster Speed to higher
         agent.speed = huntingSpeed;
@@ -222,6 +264,20 @@ public class MonsterPathfinding : MonoBehaviour
         // Reset rail patrol
         currentTarget = startingTarget;
         currentTargetPos = startingTarget.transform.position;
+    }
+
+    IEnumerator LingeringHuntStop()
+    {
+        StopCoroutine(LingeringHuntStop());
+        countdownHasBegun = true;
+
+        isHunting = true;
+        yield return new WaitForSeconds(lingeringHuntTime);
+
+        stopUpdatingPlayerPos = true;
+
+
+        //ExitHuntingMode();
 
     }
 

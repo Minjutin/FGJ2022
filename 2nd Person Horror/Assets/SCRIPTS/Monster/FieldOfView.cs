@@ -92,7 +92,6 @@ public class FieldOfView : MonoBehaviour
 
         if (sighted)
         {
-            Debug.Log("Player Sighted!");
             return true;
         }
         else
