@@ -38,6 +38,10 @@ public class MonsterPathfinding : MonoBehaviour
     [SerializeField] float normalSpeed = 3.5f;
     [SerializeField] float huntingSpeed = 9f;
 
+    //AUDIO
+    private AudioManager audioM;
+    
+
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -50,6 +54,9 @@ public class MonsterPathfinding : MonoBehaviour
         // Hunting
         fov = FindObjectOfType<FieldOfView>();
         isHunting = false;
+
+        //Audio
+        audioM = FindObjectOfType<AudioManager>();
     }
 
 
@@ -233,6 +240,9 @@ public class MonsterPathfinding : MonoBehaviour
     private void EnterHuntingMode()
     {
         isHunting = true;
+
+        //Play audio
+        audioM.MonsterSawYou();
 
         StartCoroutine(BeginTheHunt());
     }
