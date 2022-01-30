@@ -1170,7 +1170,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5982051376811726572, guid: 8c8f677fb0303094e8ba3d9f71af2abf, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -32.66049
+      value: 47.8
       objectReference: {fileID: 0}
     - target: {fileID: 5982051376811726572, guid: 8c8f677fb0303094e8ba3d9f71af2abf, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1217,6 +1217,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 342372767}
     - target: {fileID: 5982051377083610447, guid: 8c8f677fb0303094e8ba3d9f71af2abf, type: 3}
+      propertyPath: bangBang
+      value: 
+      objectReference: {fileID: 8300000, guid: a9a8f9c538478594aac0fd3cc8860187, type: 3}
+    - target: {fileID: 5982051377083610447, guid: 8c8f677fb0303094e8ba3d9f71af2abf, type: 3}
       propertyPath: gunPoint
       value: 
       objectReference: {fileID: 86030984}
@@ -1224,6 +1228,10 @@ PrefabInstance:
       propertyPath: canBeUsed
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5982051377083610447, guid: 8c8f677fb0303094e8ba3d9f71af2abf, type: 3}
+      propertyPath: emptyClick
+      value: 
+      objectReference: {fileID: 8300000, guid: 587bcc59f1dfbcc46b0165601a471588, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c8f677fb0303094e8ba3d9f71af2abf, type: 3}
 --- !u!1 &1512488836 stripped
