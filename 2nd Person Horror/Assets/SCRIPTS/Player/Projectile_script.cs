@@ -8,6 +8,16 @@ public class Projectile_script : MonoBehaviour
 
     void Update ()
     {
+        gameObject.transform.Translate(Vector3.forward * movementSpeed * Time.deltaTime);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+
+        if (other.gameObject.CompareTag("Monster"))
+        {
+            //Kill Monster
+        }
     }
 
 }

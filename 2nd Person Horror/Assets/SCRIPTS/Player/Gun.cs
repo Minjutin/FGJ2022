@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Gun : MonoBehaviour
 {
+    [SerializeField] GameObject gunPoint;
 
     public bool canBeUsed = false;
 
@@ -16,9 +17,18 @@ public class Gun : MonoBehaviour
         //If player decides to shoot.
         if (canBeUsed && Input.GetMouseButtonDown(0))
         {
-            Instantiate(projectile, transform.position, Quaternion.identity);
+            Instantiate(projectile, gunPoint.transform.position, gunPoint.transform.rotation);
+            //PUT LOUD SOUND HERE
+
             canBeUsed = false;
+
         }
+
+        if(!canBeUsed && Input.GetMouseButtonDown(0))
+        {
+            //PUT EMPTY SHOOT - SOUND HERE
+        }
+
     }
 
 }

@@ -5,6 +5,7 @@ using UnityEngine;
 public class TEST_character_movement : MonoBehaviour
 {
     Rigidbody playerRB;
+    [SerializeField] GameObject playerModel;
 
     [Header("Muuttujat")]
     [SerializeField] float moveSpeed = 5f;
@@ -20,6 +21,8 @@ public class TEST_character_movement : MonoBehaviour
     private bool movingLeft;
     private bool movingRight;
 
+    bool isIdle = true;
+
     void Start()
     {
         playerRB = GetComponent<Rigidbody>();
@@ -30,6 +33,8 @@ public class TEST_character_movement : MonoBehaviour
     {
         CheckMoveInput();
     }
+
+
 
     private void FixedUpdate()
     {
@@ -78,19 +83,35 @@ public class TEST_character_movement : MonoBehaviour
         if (movingForward)
         {
             playerRB.AddForce(moveDirection * moveSpeed * Time.deltaTime, ForceMode.Impulse);
+            TurnPlayer(0);
         }
         if (movingBack)
         {
             playerRB.AddForce(-moveDirection * moveSpeed * Time.deltaTime, ForceMode.Impulse);
+            TurnPlayer(180);
         }
 
         if (movingLeft)
         {
             playerRB.AddForce(-sideDirection * moveSpeed * Time.deltaTime, ForceMode.Impulse);
+            TurnPlayer(-90);
         }
         if (movingRight)
         {
             playerRB.AddForce(sideDirection * moveSpeed * Time.deltaTime, ForceMode.Impulse);
+            TurnPlayer(90);
         }
+
+        // Makes Player animation idle
+        isIdle = false;
+        if (!movingBack && !movingForward && !movingLeft && !movingRight)
+        {
+            isIdle = true;
+        }
+    }
+
+    private void TurnPlayer(int degrees)
+    {
+        playerModel.transform.rotation = Quaternion.Euler(0f, degrees, 0f);
     }
 }
