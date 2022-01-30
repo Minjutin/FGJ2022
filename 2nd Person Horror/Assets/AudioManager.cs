@@ -4,15 +4,10 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] AudioClip monsterSawYouSound;
 
-    // Update is called once per frame
-    void Update()
+    public void MonsterSawYou()
     {
-        
+        AudioSource.PlayClipAtPoint(monsterSawYouSound, FindObjectOfType<TEST_character_movement>().gameObject.transform.position);
     }
 }
