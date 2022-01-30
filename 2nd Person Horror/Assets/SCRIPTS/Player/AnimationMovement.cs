@@ -18,7 +18,6 @@ public class AnimationMovement : MonoBehaviour
         if (Input.anyKey)
         {
             playerAnimator.SetBool("SomethingPressed", true);
-            Debug.Log("yes");
         }
         else
         {

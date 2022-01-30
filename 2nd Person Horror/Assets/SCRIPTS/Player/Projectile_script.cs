@@ -5,6 +5,7 @@ using UnityEngine;
 public class Projectile_script : MonoBehaviour
 {
     public float movementSpeed = 30f;
+    GameObject gameManager;
 
     void Update ()
     {
@@ -16,7 +17,8 @@ public class Projectile_script : MonoBehaviour
 
         if (other.gameObject.CompareTag("Monster"))
         {
-            //Kill Monster
+            gameManager = GameObject.Find("Game Manager");
+            gameManager.GetComponent<GameOver>().playerDead = true;
         }
     }
 
