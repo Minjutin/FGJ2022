@@ -20,6 +20,7 @@ public class MonsterPathfinding : MonoBehaviour
     public bool timeForTargetCheck = true;
 
     [Header("Hunting")]
+    FieldOfView fov;
     [SerializeField] GameObject player;
     private Vector3 lastKnownPlayerPosition;
 
@@ -38,6 +39,7 @@ public class MonsterPathfinding : MonoBehaviour
         currentTargetPos = startingTarget.transform.position;
 
         // Hunting
+        fov = FindObjectOfType<FieldOfView>();
         isHunting = false;
     }
 
@@ -107,6 +109,8 @@ public class MonsterPathfinding : MonoBehaviour
             }
             else // IF Monster has reached last known Player Position
             {
+                // Do the search (look around animation) for a duration
+
                 // Stop Hunting
                 isHunting = false;
 
@@ -128,7 +132,8 @@ public class MonsterPathfinding : MonoBehaviour
         var selfPos = new Vector3(transform.position.x, 0f, transform.position.z);
 
         //var targetPos = new Vector3(currentTarget.transform.position.x, 0f, currentTarget.transform.position.z); // <-- Works
-        var targetPos = new Vector3(currentTargetPos.x, 0f, currentTargetPos.z);
+        //var targetPos = new Vector3(currentTargetPos.x, 0f, currentTargetPos.z);
+        var targetPos = currentTargetPos;
 
         if (selfPos == targetPos)
         {
@@ -140,29 +145,53 @@ public class MonsterPathfinding : MonoBehaviour
 
     private void CheckIfHunting()
     {
-        
+        isOnSight = fov.CheckTheVisibleTargetListForPlayer();
+
+        // Check if you see the Player
+        if (isOnSight && isHunting)
+        {
+            isOnSight = true;
+        }
+        else if (isOnSight && !isHunting)
+        {
+            EnterHuntingMode();
+        }
+        else if (!isOnSight && isHunting)
+        {
+            //Lost track of Player
+            // -> check if you have reached lastKnownLocation
+        }
 
     }
 
     private void EnterHuntingMode()
     {
+        // Do the "staredown" animation
+        // --> change the speed to minimal (agent will turn but not move fast then)
+
         isHunting = true;
 
         // Change Monster Speed to higher
+        agent.speed = huntingSpeed;
     }
 
     private void ExitHuntingMode()
     {
         isHunting = false;
+
         // Change Monster speed to normal
+        agent.speed = normalSpeed;
 
     }
 
     private void LostSightOfPlayer()
     {
-        // Keep the last location
-        var lastLocation = player.transform.position;
-        currentTargetPos = lastLocation;
+        // Do the search animation
+
+        // Wait for a bit
+
+        // Pick a new waypointTarget
+        ExitHuntingMode();
 
     }
 }

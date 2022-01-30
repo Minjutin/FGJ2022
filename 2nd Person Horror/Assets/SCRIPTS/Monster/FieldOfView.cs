@@ -18,13 +18,21 @@ public class FieldOfView : MonoBehaviour
     // Variables relating to other SCRIPTS
     public bool permissionToClearTargetsList = true;
     [SerializeField] GameObject player;
+    [SerializeField] GameObject[] waypointTargets;
 
 
     // Start is called before the first frame update
     void Start()
     {
         StartCoroutine("FindTargetsWithDelay", .2f);
+
+        //Invoke("AddWaypoints", 0.5f); // <-- Later functionality for waypoint sighting
     }
+
+    //void AddWaypoints()
+    //{
+    //    waypointTargets = FindObjectsOfType<Target>();  // <-- Later functionality for waypoint sighting
+    //}
 
     //Checking if there is targets around.
     IEnumerator FindTargetsWithDelay(float delay)
@@ -64,9 +72,7 @@ public class FieldOfView : MonoBehaviour
                 {
 
                     visibleTargets.Add(target);
-                    //INSERT MIKSU THING HERE!!!!!!!!!!!!!!!!!!!!!!
-
-                    CheckTheVisibleTargetListForPlayer();
+                    //CheckTheVisibleTargetListForPlayer();
                 }
             }
         }
@@ -75,15 +81,24 @@ public class FieldOfView : MonoBehaviour
     //Check the list for Player
     public bool CheckTheVisibleTargetListForPlayer()
     {
+        bool sighted = false;
         foreach (Transform visibleTarget in visibleTargets)
         {
             if (visibleTarget.position == player.transform.position)
             {
-                Debug.Log("Player Sighted!");
+                sighted = true;
             }
         }
 
+        if (sighted)
+        {
+            Debug.Log("Player Sighted!");
             return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
 
