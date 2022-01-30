@@ -53,6 +53,13 @@ public class MonsterPathfinding : MonoBehaviour
         {
             StartCoroutine(CheckTargeting());
         }
+
+        if (Input.GetKeyDown(KeyCode.Space)) // MANUAL RESET
+        {
+            isHunting = false;
+            currentTarget = startingTarget;
+            currentTargetPos = startingTarget.transform.position;
+        }
     }
 
     private void Move()
@@ -82,6 +89,7 @@ public class MonsterPathfinding : MonoBehaviour
             {
                 // Compare target list's chosen Target == previousTarget
                 bool newTargetFound = false;
+                Debug.Log("Has reached current Target");
                 while (newTargetFound == false)
                 {
                     candidateTarget = currentTarget.GetComponent<Target>().GiveNextTarget();
@@ -116,6 +124,8 @@ public class MonsterPathfinding : MonoBehaviour
             }
             else // IF Monster has reached last known Player Position
             {
+                ExitHuntingMode();
+                Debug.Log("Has reached last known position! 1");
                 // Do the search (look around animation) for a duration
 
                 // Stop Hunting
@@ -142,13 +152,24 @@ public class MonsterPathfinding : MonoBehaviour
 
         //var targetPos = new Vector3(currentTarget.transform.position.x, 0f, currentTarget.transform.position.z); // <-- Works
         //var targetPos = new Vector3(currentTargetPos.x, 0f, currentTargetPos.z);
-        var targetPos = GetPositionWithoutY(currentTarget);
+        Vector3 targetPos;
+        if (isHunting)
+        {
+            targetPos = lastKnownPlayerPosition;
+        }
+        else
+        {
+            targetPos = GetPositionWithoutY(currentTarget);
+        }
 
         if (selfPos == targetPos)
         {
             targetReached = true;
+            Debug.Log("Has reached current Target!");
         }
         else { targetReached = false; }
+
+        
         return targetReached;
     }
 
@@ -165,7 +186,6 @@ public class MonsterPathfinding : MonoBehaviour
         // Check if you see the Player
         if (isOnSight && isHunting)
         {
-            isOnSight = true;
             lastKnownPlayerPosition = GetPositionWithoutY(player);
         }
         else if (isOnSight && !isHunting)
@@ -176,6 +196,9 @@ public class MonsterPathfinding : MonoBehaviour
         {
             //Lost track of Player
             // -> check if you have reached lastKnownLocation
+
+            Debug.Log("LOST SIGHT!");
+            //ExitHuntingMode();
 
             //LostSightOfPlayer();
         }
@@ -199,6 +222,10 @@ public class MonsterPathfinding : MonoBehaviour
 
         // Change Monster speed to normal
         agent.speed = normalSpeed;
+
+        // Reset rail patrol
+        currentTarget = startingTarget;
+        currentTargetPos = startingTarget.transform.position;
 
     }
 
