@@ -1,17 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MenuButtons : MonoBehaviour
 {
 
     public void StartGame()
     {
-        //Load scene -> game
+        SceneManager.LoadScene("Milja2");
     }
 
-    public void Settings()
+    public void Quit()
     {
-        //Open settings window
+        Application.Quit();
     }
 }
