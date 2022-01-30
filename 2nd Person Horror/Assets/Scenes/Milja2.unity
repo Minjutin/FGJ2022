@@ -564,7 +564,12 @@ PrefabInstance:
       propertyPath: m_BackGroundColor.r
       value: 0.24889639
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 6787292552344394063, guid: ea7e911efcf4f0e4397558837674dd89, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 6787292552344394063, guid: ea7e911efcf4f0e4397558837674dd89, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ea7e911efcf4f0e4397558837674dd89, type: 3}
 --- !u!1 &684096285
 GameObject:
@@ -1170,7 +1175,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5982051376811726572, guid: 8c8f677fb0303094e8ba3d9f71af2abf, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 47.8
+      value: -32.5
       objectReference: {fileID: 0}
     - target: {fileID: 5982051376811726572, guid: 8c8f677fb0303094e8ba3d9f71af2abf, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1226,7 +1231,7 @@ PrefabInstance:
       objectReference: {fileID: 86030984}
     - target: {fileID: 5982051377083610447, guid: 8c8f677fb0303094e8ba3d9f71af2abf, type: 3}
       propertyPath: canBeUsed
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5982051377083610447, guid: 8c8f677fb0303094e8ba3d9f71af2abf, type: 3}
       propertyPath: emptyClick
@@ -1696,6 +1701,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3452452834588579019, guid: af9194b2706aec94b87b503740638efb, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 33.675602
+      objectReference: {fileID: 0}
+    - target: {fileID: 3452452835694506771, guid: af9194b2706aec94b87b503740638efb, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 32.9532
+      objectReference: {fileID: 0}
     - target: {fileID: 6608244357356909796, guid: af9194b2706aec94b87b503740638efb, type: 3}
       propertyPath: m_RootOrder
       value: 2
