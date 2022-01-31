@@ -21,10 +21,19 @@ public class Player_Charger_Room : MonoBehaviour
     Gun gun;
     bool gunLoaded;
 
+    // Alerts the Monster
+    MonsterPathfinding monster;
+
     void Awake()
     {
         gun = gameObject.GetComponent<Gun>();
+    }
+    private void Start()    // Sorry Milja, I just don't trust Awake() :D
+    {
+        monster = FindObjectOfType<MonsterPathfinding>();
 
+        // Add the code below to appropriate spot to wake the monster
+        // monster.EnterHuntingMode(1f);
     }
 
     void Update()

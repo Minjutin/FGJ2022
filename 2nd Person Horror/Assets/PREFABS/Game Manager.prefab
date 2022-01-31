@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 4831110109158914066}
   - component: {fileID: 4831110109199506050}
   - component: {fileID: 4831110109199506049}
+  - component: {fileID: 1040724038}
+  - component: {fileID: 7557697981398890370}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -46,9 +48,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultTargets:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -161,3 +160,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   monsterSawYouSound: {fileID: 8300000, guid: 564a0ee3a4851cf48b40ba1779ae0ba9, type: 3}
+--- !u!114 &1040724038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4831110109158914069}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f90be7b51e63c648a1775cad31d6aab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerDead: 0
+  deathCanvas: {fileID: 0}
+--- !u!114 &7557697981398890370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4831110109158914069}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 523769734ea34ea46b0a2c57619e776d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

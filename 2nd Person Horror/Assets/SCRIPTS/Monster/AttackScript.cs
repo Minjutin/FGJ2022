@@ -5,15 +5,35 @@ using UnityEngine;
 public class AttackScript : MonoBehaviour
 {
     GameObject gameManager;
+    MonsterPathfinding monsterAI;
+
+    public bool attackCollision = false;
+
+    private void Start()
+    {
+        monsterAI = FindObjectOfType<MonsterPathfinding>();
+    }
 
     private void OnCollisionEnter(Collision other)
     {
-            Debug.Log("Player is DEAD");
-
         if (other.gameObject.CompareTag("Player"))
         {
-            gameManager = GameObject.Find("Game Manager");
-            gameManager.GetComponent<GameOver>().playerDead = true;
+            if (!monsterAI.GetHuntingMode())
+            {
+                // Player bumbs into Monster --> aggro monster
+                monsterAI.EnterHuntingMode(3f);
+            }
+            else if (attackCollision) // Player is caught by aggroed Monster --> DIE
+            {
+                Debug.Log("Player is DEAD");
+                gameManager = GameObject.Find("Game Manager");
+                gameManager.GetComponent<GameOver>().playerDead = true;
+
+            }
+
         }
+
+
+
     }
 }

@@ -14,7 +14,7 @@ public class Projectile_script : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        Debug.Log("Hit");
+
         if (other.gameObject.CompareTag("Monster"))
         {
             gameManager = GameObject.Find("Game Manager");

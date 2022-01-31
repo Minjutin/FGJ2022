@@ -22,7 +22,7 @@ public class MonsterPathfinding : MonoBehaviour
     [Header("Hunting")]
     FieldOfView fov;
     [SerializeField] GameObject player;
-    GameObject attack;
+    AttackScript attack;
 
     private Vector3 lastKnownPlayerPosition;
 
@@ -32,7 +32,8 @@ public class MonsterPathfinding : MonoBehaviour
     bool stopUpdatingPlayerPos = false;
     bool countdownHasBegun = false;
 
-    [SerializeField] float staredownTime = 3f;
+    [SerializeField] float ORIGINALstaredownTime = 3f;
+    public float staredownTime;
     [SerializeField] float lingeringHuntTime = 5f;
     public bool stillUpdatingPlayerPos = false;
 
@@ -55,9 +56,11 @@ public class MonsterPathfinding : MonoBehaviour
 
         // Hunting
         fov = FindObjectOfType<FieldOfView>();
-        attack = GetComponentInChildren<AttackScript>().gameObject;
-        attack.SetActive(false);
+        attack = FindObjectOfType<AttackScript>();
+        attack.attackCollision = false;
         isHunting = false;
+
+        staredownTime = ORIGINALstaredownTime;
 
         //Audio
         audioM = FindObjectOfType<AudioManager>();
@@ -216,7 +219,7 @@ public class MonsterPathfinding : MonoBehaviour
         }
         else if (isOnSight && !isHunting)
         {
-            EnterHuntingMode();
+            EnterHuntingMode(staredownTime);
         }
         else if (!isOnSight && isHunting)
         {
@@ -241,13 +244,14 @@ public class MonsterPathfinding : MonoBehaviour
 
     }
 
-    private void EnterHuntingMode()
+    public void EnterHuntingMode(float _staredownTime)
     {
         isHunting = true;
 
         //Play audio
         audioM.MonsterSawYou();
 
+        staredownTime = _staredownTime;
         StartCoroutine(BeginTheHunt());
     }
 
@@ -262,10 +266,13 @@ public class MonsterPathfinding : MonoBehaviour
         agent.speed = 0.5f;
         yield return new WaitForSeconds(staredownTime);
 
+        // reset Staredown Time
+        staredownTime = ORIGINALstaredownTime;
+
         // Stop the "staredown"
 
         // Activate the Attack Hit Box
-        attack.SetActive(true);
+        attack.attackCollision = true;
 
         // Change Monster Speed to higher
         agent.speed = huntingSpeed;
@@ -276,7 +283,7 @@ public class MonsterPathfinding : MonoBehaviour
         isHunting = false;
 
         // Deactivate Attack Hit Box
-        attack.SetActive(false);
+        attack.attackCollision = false;
 
         // Change Monster speed to normal
         agent.speed = normalSpeed;
@@ -286,6 +293,11 @@ public class MonsterPathfinding : MonoBehaviour
         currentTargetPos = startingTarget.transform.position;
         // Randomize Reset waypoint Target
         RandomizeWaypointTarget();
+    }
+
+    public bool GetHuntingMode()
+    {
+        return isHunting;
     }
 
     private void RandomizeWaypointTarget()
@@ -304,19 +316,6 @@ public class MonsterPathfinding : MonoBehaviour
 
         stopUpdatingPlayerPos = true;
         //ExitHuntingMode();
-
-    }
-
-    private void LostSightOfPlayer()
-    {
-
-
-        // Do the search animation
-
-        // Wait for a bit
-
-        // Pick a new waypointTarget
-        ExitHuntingMode();
 
     }
 }
