@@ -114,12 +114,4 @@ public class FieldOfView : MonoBehaviour
         return new Vector3(Mathf.Sin(angleInDegrees * Mathf.Deg2Rad), 0, Mathf.Cos(angleInDegrees * Mathf.Deg2Rad));
     }
 
-    //void TestListOfVisibleTargets()
-    //{
-    //    foreach (Transform visibleTarget in fow.visibleTargets)
-    //    {
-    //        Handles.DrawLine(fow.transform.position, visibleTarget.position);
-    //    }
-    //}
-
 }

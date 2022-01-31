@@ -22,6 +22,8 @@ public class MonsterPathfinding : MonoBehaviour
     [Header("Hunting")]
     FieldOfView fov;
     [SerializeField] GameObject player;
+    GameObject attack;
+
     private Vector3 lastKnownPlayerPosition;
 
     [SerializeField] bool isOnSight = false;
@@ -53,6 +55,8 @@ public class MonsterPathfinding : MonoBehaviour
 
         // Hunting
         fov = FindObjectOfType<FieldOfView>();
+        attack = GetComponentInChildren<AttackScript>().gameObject;
+        attack.SetActive(false);
         isHunting = false;
 
         //Audio
@@ -260,6 +264,9 @@ public class MonsterPathfinding : MonoBehaviour
 
         // Stop the "staredown"
 
+        // Activate the Attack Hit Box
+        attack.SetActive(true);
+
         // Change Monster Speed to higher
         agent.speed = huntingSpeed;
     }
@@ -267,6 +274,9 @@ public class MonsterPathfinding : MonoBehaviour
     private void ExitHuntingMode()
     {
         isHunting = false;
+
+        // Deactivate Attack Hit Box
+        attack.SetActive(false);
 
         // Change Monster speed to normal
         agent.speed = normalSpeed;

@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class AttackScript : MonoBehaviour
 {
-    //[SerializeField] 
     GameObject gameManager;
 
     private void OnCollisionEnter(Collision other)
