@@ -954,7 +954,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &980545742
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1157,6 +1157,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 766644003}
     - target: {fileID: -121670781900650153, guid: bbcd0afd1f28afd42a2a37c372dbf45e, type: 3}
+      propertyPath: viewAngle
+      value: 170
+      objectReference: {fileID: 0}
+    - target: {fileID: -121670781900650153, guid: bbcd0afd1f28afd42a2a37c372dbf45e, type: 3}
       propertyPath: viewRadius
       value: 100
       objectReference: {fileID: 0}
@@ -1191,6 +1195,10 @@ PrefabInstance:
     - target: {fileID: 2133685477, guid: bbcd0afd1f28afd42a2a37c372dbf45e, type: 3}
       propertyPath: m_IsTrigger
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1680392101926828020, guid: bbcd0afd1f28afd42a2a37c372dbf45e, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2230299048574016595, guid: bbcd0afd1f28afd42a2a37c372dbf45e, type: 3}
       propertyPath: m_ClearFlags
@@ -1261,9 +1269,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 766644003}
     - target: {fileID: 7464905738284131504, guid: bbcd0afd1f28afd42a2a37c372dbf45e, type: 3}
+      propertyPath: huntingSpeed
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 7464905738284131504, guid: bbcd0afd1f28afd42a2a37c372dbf45e, type: 3}
       propertyPath: startingTarget
       value: 
       objectReference: {fileID: 1944865538}
+    - target: {fileID: 7464905738284131504, guid: bbcd0afd1f28afd42a2a37c372dbf45e, type: 3}
+      propertyPath: targetingTimer
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7464905738284131504, guid: bbcd0afd1f28afd42a2a37c372dbf45e, type: 3}
+      propertyPath: lingeringHuntTime
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 7464905738284131505, guid: bbcd0afd1f28afd42a2a37c372dbf45e, type: 3}
       propertyPath: m_Name
       value: MONSTER
@@ -1287,6 +1307,14 @@ PrefabInstance:
     - target: {fileID: 7464905738284131506, guid: bbcd0afd1f28afd42a2a37c372dbf45e, type: 3}
       propertyPath: m_Center.z
       value: 1.7643433
+      objectReference: {fileID: 0}
+    - target: {fileID: 7464905738284131507, guid: bbcd0afd1f28afd42a2a37c372dbf45e, type: 3}
+      propertyPath: m_Acceleration
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7464905738284131507, guid: bbcd0afd1f28afd42a2a37c372dbf45e, type: 3}
+      propertyPath: m_AngularSpeed
+      value: 360
       objectReference: {fileID: 0}
     - target: {fileID: 7464905738392721175, guid: bbcd0afd1f28afd42a2a37c372dbf45e, type: 3}
       propertyPath: m_IsActive
@@ -1474,7 +1502,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5982051376811726574, guid: 8c8f677fb0303094e8ba3d9f71af2abf, type: 3}
       propertyPath: moveSpeed
-      value: 80
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 5982051376811726574, guid: 8c8f677fb0303094e8ba3d9f71af2abf, type: 3}
       propertyPath: playerModel
@@ -1644,7 +1672,7 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.3962264, g: 0.3962264, b: 0.3962264, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
