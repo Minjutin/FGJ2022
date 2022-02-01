@@ -13,9 +13,5 @@ public class DarknessManager : MonoBehaviour
         canvas = FindObjectOfType<DarkCanvas>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
 }
