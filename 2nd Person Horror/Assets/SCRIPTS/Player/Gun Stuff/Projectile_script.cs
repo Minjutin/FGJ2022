@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Projectile_script : MonoBehaviour
 {
-    public float movementSpeed = 30f;
+    [SerializeField] private float movementSpeed = 15f;
     GameObject gameManager;
 
     void Update ()

@@ -78,6 +78,9 @@ public class Player_Charger_Room : MonoBehaviour
     //countdown.
     private IEnumerator Countdown()
     {
+        // Subtly guide the monster towards Charging room
+        monster.AlertAndGuideMonsterToLocation();
+
         timer = maxTime;
         while (timer > 0)
         {

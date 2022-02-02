@@ -22,7 +22,11 @@ public class MonsterPathfinding : MonoBehaviour
     [Header("Hunting")]
     FieldOfView fov;
     [SerializeField] GameObject player;
+    DarknessManager darkness;
     AttackScript attack;
+
+    [Header("Alerted")]
+    private bool alerted = false;
 
     private Vector3 lastKnownPlayerPosition;
 
@@ -43,7 +47,7 @@ public class MonsterPathfinding : MonoBehaviour
 
     //AUDIO
     private AudioManager audioM;
-    
+
 
     void Start()
     {
@@ -57,6 +61,7 @@ public class MonsterPathfinding : MonoBehaviour
         // Hunting
         fov = FindObjectOfType<FieldOfView>();
         attack = FindObjectOfType<AttackScript>();
+        darkness = FindObjectOfType<DarknessManager>();
         attack.attackCollision = false;
         isHunting = false;
 
@@ -77,11 +82,9 @@ public class MonsterPathfinding : MonoBehaviour
             StartCoroutine(CheckTargeting());
         }
 
-        //if (Input.GetKeyDown(KeyCode.Space)) // MANUAL RESET
+        //if (Input.GetKeyDown(KeyCode.Q)) // MANUAL ALERT
         //{
-        //    isHunting = false;
-        //    currentTarget = startingTarget;
-        //    currentTargetPos = startingTarget.transform.position;
+        //    AlertAndGuideMonsterToLocation();
         //}
     }
 
@@ -110,6 +113,8 @@ public class MonsterPathfinding : MonoBehaviour
 
             if (HasReachedCurrentTarget())
             {
+
+
                 // Compare target list's chosen Target == previousTarget
                 bool newTargetFound = false;
                 while (newTargetFound == false)
@@ -184,12 +189,24 @@ public class MonsterPathfinding : MonoBehaviour
         }
         else
         {
-            targetPos = GetPositionWithoutY(currentTarget);
+            if (!alerted)
+            {
+                // Normaali ohjaus
+                targetPos = GetPositionWithoutY(currentTarget);
+            }
+            else
+            {
+                // Purkkakoodi "alerted" ohjaus
+                targetPos = currentTargetPos;
+            }
+
+            
         }
 
         if (selfPos == targetPos)
         {
             targetReached = true;
+            alerted = false;
         }
         else { targetReached = false; }
 
@@ -248,6 +265,9 @@ public class MonsterPathfinding : MonoBehaviour
     {
         isHunting = true;
 
+        // Get the lights back on
+        darkness.LightsOn();
+
         //Play audio
         audioM.MonsterSawYou();
 
@@ -298,6 +318,28 @@ public class MonsterPathfinding : MonoBehaviour
     public bool GetHuntingMode()
     {
         return isHunting;
+    }
+
+    public void AlertAndGuideMonsterToLocation()
+    {
+        // Shut down the lights
+        darkness.LightsOut();
+
+        // Turn off the last waypoint Target?
+
+        // Turn off alerte
+        alerted = true;
+
+        // Turn the Monster towards Player's Position
+        StartCoroutine(WaitAndTurn());
+    }
+
+    IEnumerator WaitAndTurn()
+    {
+        //Waits for the lights to go out before turning :)
+        yield return new WaitForSeconds(2f);
+        // Turn the Monster towards Player's Position
+        currentTargetPos = GetPositionWithoutY(player);
     }
 
     private void RandomizeWaypointTarget()
