@@ -11,7 +11,7 @@ public class MonsterPathfinding : MonoBehaviour
     public Vector3 currentTargetPos;  //<-- SAME AS BELOW
     public GameObject currentTarget;
     private GameObject candidateTarget = null;
-    [SerializeField] GameObject startingTarget;
+    //GameObject startingTarget;
     public bool shouldIMove;
 
     // Muuttujat
@@ -55,8 +55,12 @@ public class MonsterPathfinding : MonoBehaviour
         pathfindingManager = FindObjectOfType<PathfindingManager>();
 
         // Sets the first Target up
-        currentTarget = startingTarget;
-        currentTargetPos = startingTarget.transform.position;
+        //startingTarget = pathfindingManager.FetchStartingTarget();
+        //currentTarget = startingTarget;
+        //currentTargetPos = startingTarget.transform.position;
+
+        currentTarget = pathfindingManager.FetchStartingTarget();
+        currentTargetPos = currentTarget.transform.position;
 
         // Hunting
         fov = FindObjectOfType<FieldOfView>();
@@ -309,8 +313,10 @@ public class MonsterPathfinding : MonoBehaviour
         agent.speed = normalSpeed;
 
         // Reset rail patrol
-        currentTarget = startingTarget;
-        currentTargetPos = startingTarget.transform.position;
+        
+        //currentTarget = startingTarget;
+        //currentTargetPos = startingTarget.transform.position;
+
         // Randomize Reset waypoint Target
         RandomizeWaypointTarget();
     }
@@ -358,6 +364,14 @@ public class MonsterPathfinding : MonoBehaviour
 
         stopUpdatingPlayerPos = true;
         //ExitHuntingMode();
+    }
 
+    public void SwitchNavMeshAgent(bool powerOn)
+    {
+        if (powerOn)
+        {
+            agent.enabled = true;
+        }
+        else { agent.enabled = false; }
     }
 }

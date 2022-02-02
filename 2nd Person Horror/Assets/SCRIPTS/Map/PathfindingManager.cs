@@ -12,11 +12,20 @@ public class PathfindingManager : MonoBehaviour
     // Pit‰‰ listaa default restart Targeteista
     [SerializeField] GameObject[] defaultTargets;
 
+    [SerializeField] GameObject[] startingTargets;
+    GameObject firstTarget;
+
+    private void Awake()
+    {
+        firstTarget = startingTargets[Random.Range(0, startingTargets.Length)];
+    }
+
     void Start()
     {
         monster = FindObjectOfType<MonsterPathfinding>();
-    }
 
+        SpawnMonster();
+    }
 
     public void UpdatePreviousTarget(GameObject _reachedTarget)
     {
@@ -50,5 +59,25 @@ public class PathfindingManager : MonoBehaviour
     {
         var chosenTarget = defaultTargets[Random.Range(0, defaultTargets.Length)];
         return chosenTarget;
+    }
+
+    private void SpawnMonster()
+    {
+        // Disable navmesh Agent
+        monster.SwitchNavMeshAgent(false);
+
+        // Move Monster to starting location
+        monster.transform.position = firstTarget.transform.position;
+
+        // Set StartingTarget accordingly
+        monster.currentTarget = firstTarget;
+
+        // Enable navmesh Agent again
+        monster.SwitchNavMeshAgent(true);
+    }
+
+    public GameObject FetchStartingTarget()
+    {
+        return firstTarget;
     }
 }
