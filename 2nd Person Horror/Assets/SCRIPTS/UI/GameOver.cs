@@ -6,8 +6,9 @@ using UnityEngine.SceneManagement;
 public class GameOver : MonoBehaviour
 {
 
-    public bool playerDead = false;
-    public bool monsterDead = false;
+    //public bool playerDead = false;
+    //public bool monsterDead = false;
+    public bool gameHasEnded = false;
 
     public GameObject deathCanvas;
     EndCanvas end;
@@ -36,24 +37,34 @@ public class GameOver : MonoBehaviour
     // Ends the game in Player's Death
     public void EndGamePlayerDead()
     {
-        deathCanvas.SetActive(true);
-        //string myString = "you died.";
-        //end.ChangeEndingTextTo(myString);
-        //end.ChangeEndingTextTo("TEST TEXT");
-        end.PlayerDeadEnding();
+        if (!gameHasEnded)
+        {
+            gameHasEnded = true;
+            deathCanvas.SetActive(true);
+            //string myString = "you died.";
+            //end.ChangeEndingTextTo(myString);
+            //end.ChangeEndingTextTo("TEST TEXT");
+            end.PlayerDeadEnding();
 
-        StartCoroutine(WaitForMove());
+            StartCoroutine(WaitForMove());
+        }
+        
     }
 
     // Ends the game in Monster's Death (aka Player WIN)
     public void EndGameMonsterDead()
     {
-        deathCanvas.SetActive(true);
-        //string myString = "you escaped!";
-        //end.ChangeEndingTextTo(myString);
-        end.MonsterDeadEnding();
+        if (!gameHasEnded)
+        {
+            gameHasEnded = true;
+            deathCanvas.SetActive(true);
+            //string myString = "you escaped!";
+            //end.ChangeEndingTextTo(myString);
+            end.MonsterDeadEnding();
 
-        StartCoroutine(WaitForMove());
+            StartCoroutine(WaitForMove());
+        }
+        
     }
 
     //return main menu

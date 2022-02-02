@@ -24,6 +24,12 @@ public class PathfindingManager : MonoBehaviour
     {
         monster = FindObjectOfType<MonsterPathfinding>();
 
+        StartCoroutine(SpawnWithDelay());
+    }
+
+    IEnumerator SpawnWithDelay()
+    {
+        yield return new WaitForEndOfFrame();
         SpawnMonster();
     }
 

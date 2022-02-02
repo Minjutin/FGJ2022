@@ -580,7 +580,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentTargetPos: {x: 0, y: 0, z: 0}
   currentTarget: {fileID: 0}
-  startingTarget: {fileID: 0}
   shouldIMove: 1
   targetingTimer: 0.1
   timeForTargetCheck: 1

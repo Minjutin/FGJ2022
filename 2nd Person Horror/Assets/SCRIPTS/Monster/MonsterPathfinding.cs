@@ -46,6 +46,7 @@ public class MonsterPathfinding : MonoBehaviour
     [SerializeField] float huntingSpeed = 9f;
 
     //AUDIO
+    AudioSource heartBeat;
     private AudioManager audioM;
 
 
@@ -72,6 +73,8 @@ public class MonsterPathfinding : MonoBehaviour
         staredownTime = ORIGINALstaredownTime;
 
         //Audio
+        heartBeat = GetComponent<AudioSource>();    // Shuts out the Heartbeat before sighting
+        heartBeat.enabled = false;
         audioM = FindObjectOfType<AudioManager>();
     }
 
@@ -86,10 +89,10 @@ public class MonsterPathfinding : MonoBehaviour
             StartCoroutine(CheckTargeting());
         }
 
-        //if (Input.GetKeyDown(KeyCode.Q)) // MANUAL ALERT
-        //{
-        //    AlertAndGuideMonsterToLocation();
-        //}
+        if (Input.GetKeyDown(KeyCode.Q)) // MANUAL ALERT
+        {
+            AlertAndGuideMonsterToLocation();
+        }
     }
 
     private void Move()
@@ -274,6 +277,8 @@ public class MonsterPathfinding : MonoBehaviour
 
         //Play audio
         audioM.MonsterSawYou();
+        // Enable heartbeat
+        heartBeat.enabled = true;
 
         staredownTime = _staredownTime;
         StartCoroutine(BeginTheHunt());
@@ -305,6 +310,9 @@ public class MonsterPathfinding : MonoBehaviour
     private void ExitHuntingMode()
     {
         isHunting = false;
+
+        // Disable Heartbeat
+        heartBeat.enabled = false;
 
         // Deactivate Attack Hit Box
         attack.attackCollision = false;

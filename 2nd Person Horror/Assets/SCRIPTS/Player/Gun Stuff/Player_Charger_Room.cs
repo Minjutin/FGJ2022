@@ -79,7 +79,12 @@ public class Player_Charger_Room : MonoBehaviour
     private IEnumerator Countdown()
     {
         // Subtly guide the monster towards Charging room
-        monster.AlertAndGuideMonsterToLocation();
+        //monster.AlertAndGuideMonsterToLocation();
+
+        if (RandomizeBool()) // <-- Optionally, give player 1/3 chance to NOT alert the Monster
+        {
+            monster.AlertAndGuideMonsterToLocation();
+        }
 
         timer = maxTime;
         while (timer > 0)
@@ -91,6 +96,13 @@ public class Player_Charger_Room : MonoBehaviour
         timer = maxTime;
         gunIsReady = true;
         //after countdown.
+    }
+
+    private bool RandomizeBool()
+    {
+        int num = Random.Range(0, 2);
+        if (num >= 1) { return true; }
+        else { return false; }
     }
 
 }

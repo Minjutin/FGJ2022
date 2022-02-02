@@ -177,6 +177,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerDead: 0
+  monsterDead: 0
   deathCanvas: {fileID: 0}
 --- !u!114 &7557697981398890370
 MonoBehaviour:
@@ -191,6 +192,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minTimeOn: 5
-  maxTimeOn: 15
+  maxTimeOn: 20
   minTimeOff: 3
-  maxTimeOff: 10
+  maxTimeOff: 7
