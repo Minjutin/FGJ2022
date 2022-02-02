@@ -17,8 +17,10 @@ public class Projectile_script : MonoBehaviour
 
         if (other.gameObject.CompareTag("Monster"))
         {
-            gameManager = GameObject.Find("Game Manager");
-            gameManager.GetComponent<GameOver>().playerDead = true;
+            //gameManager = GameObject.Find("Game Manager");
+            //gameManager.GetComponent<GameOver>().playerDead = true;
+
+            FindObjectOfType<GameOver>().EndGameMonsterDead();
         }
     }
 

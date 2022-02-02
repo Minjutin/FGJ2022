@@ -26,14 +26,11 @@ public class AttackScript : MonoBehaviour
             else if (attackCollision) // Player is caught by aggroed Monster --> DIE
             {
                 Debug.Log("Player is DEAD");
-                gameManager = GameObject.Find("Game Manager");
-                gameManager.GetComponent<GameOver>().playerDead = true;
+                //gameManager = GameObject.Find("Game Manager");
+                //gameManager.GetComponent<GameOver>().playerDead = true;
 
+                FindObjectOfType<GameOver>().EndGamePlayerDead();
             }
-
         }
-
-
-
     }
 }

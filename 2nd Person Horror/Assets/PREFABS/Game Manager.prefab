@@ -51,6 +51,10 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  startingTargets:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!82 &4831110109199506050
 AudioSource:
   m_ObjectHideFlags: 0
@@ -186,3 +190,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 523769734ea34ea46b0a2c57619e776d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minTimeOn: 5
+  maxTimeOn: 15
+  minTimeOff: 3
+  maxTimeOff: 10
