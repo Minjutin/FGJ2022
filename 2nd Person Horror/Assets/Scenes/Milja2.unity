@@ -806,6 +806,14 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 766644003}
+    - target: {fileID: -121670781900650153, guid: bbcd0afd1f28afd42a2a37c372dbf45e, type: 3}
+      propertyPath: viewAngle
+      value: 170
+      objectReference: {fileID: 0}
+    - target: {fileID: 241877862615921109, guid: bbcd0afd1f28afd42a2a37c372dbf45e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7464905738284131501, guid: bbcd0afd1f28afd42a2a37c372dbf45e, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -855,8 +863,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 766644003}
     - target: {fileID: 7464905738284131504, guid: bbcd0afd1f28afd42a2a37c372dbf45e, type: 3}
+      propertyPath: huntingSpeed
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 7464905738284131504, guid: bbcd0afd1f28afd42a2a37c372dbf45e, type: 3}
       propertyPath: lingeringHuntTime
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7464905738284131505, guid: bbcd0afd1f28afd42a2a37c372dbf45e, type: 3}
       propertyPath: m_Name
@@ -975,7 +987,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5982051376811726574, guid: 8c8f677fb0303094e8ba3d9f71af2abf, type: 3}
       propertyPath: moveSpeed
-      value: 60
+      value: 65
       objectReference: {fileID: 0}
     - target: {fileID: 5982051376811726574, guid: 8c8f677fb0303094e8ba3d9f71af2abf, type: 3}
       propertyPath: playerModel

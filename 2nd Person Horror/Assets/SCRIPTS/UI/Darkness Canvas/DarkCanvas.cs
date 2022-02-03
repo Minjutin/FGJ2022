@@ -20,4 +20,17 @@ public class DarkCanvas : MonoBehaviour
     {
         animator.SetBool("lightsOn", true);
     }
+
+    public void PutLightsInstantlyOn()
+    {
+        animator.SetBool("InstantOn", true);
+        animator.SetBool("lightsOn", true);
+        StartCoroutine(DelayedResetBool());
+    }
+
+    IEnumerator DelayedResetBool()
+    {
+        yield return new WaitForSeconds(1f);
+        animator.SetBool("InstantOn", false);
+    }
 }

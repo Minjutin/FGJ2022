@@ -270,6 +270,7 @@ public class MonsterPathfinding : MonoBehaviour
         isHunting = true;
 
         // Get the lights back on
+        //darkness.LightsOn();
         darkness.LightsOn();
 
         //Play audio

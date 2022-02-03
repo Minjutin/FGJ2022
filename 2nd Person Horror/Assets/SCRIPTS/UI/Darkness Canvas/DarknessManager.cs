@@ -41,7 +41,19 @@ public class DarknessManager : MonoBehaviour
 
     public void LightsOn()
     {
-        canvas.PutTheLightsOn();
+        if (!monster.GetHuntingMode())
+        {
+            canvas.PutTheLightsOn();
+        }
+        else
+        {
+            LightsInstantOn();
+        }
+    }
+
+    public void LightsInstantOn()
+    {
+        canvas.PutLightsInstantlyOn();
     }
 
     IEnumerator LightSwitchTimer()
