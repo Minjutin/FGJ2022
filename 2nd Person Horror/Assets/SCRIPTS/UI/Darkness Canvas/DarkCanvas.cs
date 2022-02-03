@@ -30,7 +30,7 @@ public class DarkCanvas : MonoBehaviour
 
     IEnumerator DelayedResetBool()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(2f);
         animator.SetBool("InstantOn", false);
     }
 }

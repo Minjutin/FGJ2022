@@ -22,11 +22,11 @@ public class AudioManager : MonoBehaviour
         audio.PlayOneShot(monsterSawYouSound, 1.5f);
     }
 
-    private void Update()   // FOR TESTING THE SOUND
-    {
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            MonsterSawYou();
-        }
-    }
+    //private void Update()   // FOR TESTING THE SOUND
+    //{
+    //    if (Input.GetKeyDown(KeyCode.F))
+    //    {
+    //        MonsterSawYou();
+    //    }
+    //}
 }
