@@ -106,7 +106,7 @@ NavMeshSettings:
   m_BuildSettings:
     serializedVersion: 2
     agentTypeID: 0
-    agentRadius: 0.5
+    agentRadius: 1
     agentHeight: 2
     agentSlope: 45
     agentClimb: 0.4
@@ -114,7 +114,7 @@ NavMeshSettings:
     maxJumpAcrossDistance: 0
     minRegionArea: 2
     manualCellSize: 0
-    cellSize: 0.16666667
+    cellSize: 0.33333334
     manualTileSize: 0
     tileSize: 256
     accuratePlacement: 0
@@ -854,6 +854,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 766644003}
+    - target: {fileID: 7464905738284131504, guid: bbcd0afd1f28afd42a2a37c372dbf45e, type: 3}
+      propertyPath: lingeringHuntTime
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 7464905738284131505, guid: bbcd0afd1f28afd42a2a37c372dbf45e, type: 3}
       propertyPath: m_Name
       value: MONSTER

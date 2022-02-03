@@ -20,13 +20,10 @@ public class MonsterPathfinding : MonoBehaviour
     public bool timeForTargetCheck = true;
 
     [Header("Hunting")]
-    FieldOfView fov;
     [SerializeField] GameObject player;
+    FieldOfView fov;
     DarknessManager darkness;
     AttackScript attack;
-
-    [Header("Alerted")]
-    private bool alerted = false;
 
     private Vector3 lastKnownPlayerPosition;
 
@@ -40,6 +37,9 @@ public class MonsterPathfinding : MonoBehaviour
     public float staredownTime;
     [SerializeField] float lingeringHuntTime = 5f;
     public bool stillUpdatingPlayerPos = false;
+
+    //[Header("Alerted")]
+    private bool alerted = false;
 
     [Header("Speeds")]
     [SerializeField] float normalSpeed = 3.5f;
@@ -56,9 +56,6 @@ public class MonsterPathfinding : MonoBehaviour
         pathfindingManager = FindObjectOfType<PathfindingManager>();
 
         // Sets the first Target up
-        //startingTarget = pathfindingManager.FetchStartingTarget();
-        //currentTarget = startingTarget;
-        //currentTargetPos = startingTarget.transform.position;
 
         currentTarget = pathfindingManager.FetchStartingTarget();
         currentTargetPos = currentTarget.transform.position;
