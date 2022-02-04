@@ -580,6 +580,20 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5982051376811726572, guid: 8c8f677fb0303094e8ba3d9f71af2abf, type: 3}
   m_PrefabInstance: {fileID: 1397612606}
   m_PrefabAsset: {fileID: 0}
+--- !u!136 &766644013
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 766644003}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 1.0321844
+  m_Height: 7.1461267
+  m_Direction: 1
+  m_Center: {x: -0.58445215, y: 3.0730634, z: 0.0020196438}
 --- !u!1001 &778821395
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -948,6 +962,10 @@ PrefabInstance:
     - target: {fileID: 5982051376811726563, guid: 8c8f677fb0303094e8ba3d9f71af2abf, type: 3}
       propertyPath: m_Size.z
       value: 1.7657032
+      objectReference: {fileID: 0}
+    - target: {fileID: 5982051376811726563, guid: 8c8f677fb0303094e8ba3d9f71af2abf, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5982051376811726563, guid: 8c8f677fb0303094e8ba3d9f71af2abf, type: 3}
       propertyPath: m_Center.x
