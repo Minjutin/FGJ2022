@@ -24,7 +24,7 @@ public class Gun : MonoBehaviour
     {
 
         //If player decides to shoot.
-        if (canBeUsed && Input.GetMouseButtonDown(0))
+        if (canBeUsed && Input.GetKeyDown("space"))
         {
             Instantiate(projectile, gunPoint.transform.position, gunPoint.transform.rotation);
             //PUT LOUD SOUND HERE
@@ -34,7 +34,7 @@ public class Gun : MonoBehaviour
 
         }
 
-        if(!canBeUsed && Input.GetMouseButtonDown(0))
+        if(!canBeUsed && Input.GetKeyDown("space"))
         {
             //PUT EMPTY SHOOT - SOUND HERE
             AudioSource.PlayClipAtPoint(emptyClick, audioPos);
