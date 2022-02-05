@@ -7,6 +7,9 @@ public class Player_Charger_Room : MonoBehaviour
     //whenever you arrive in charger room this will be true.
     public bool canCharge = false;
 
+    [SerializeField] Vector3 audioPos;
+    [SerializeField] AudioClip arriveRoom;
+
     //whenever you leave your gun in the charge station this will be true.
     public bool thereIsGun = false;
 
@@ -31,14 +34,14 @@ public class Player_Charger_Room : MonoBehaviour
     private void Start()    // Sorry Milja, I just don't trust Awake() :D
     {
         monster = FindObjectOfType<MonsterPathfinding>();
-
+        audioPos = FindObjectOfType<AudioManager>().gameObject.transform.position;
         // Add the code below to appropriate spot to wake the monster
         // monster.EnterHuntingMode(1f);
     }
 
     void Update()
     {
-        if (canCharge && !thereIsGun && Input.GetKeyDown("space"))
+        if (canCharge && !thereIsGun && Input.GetKeyDown("e"))
         {
             gunLoaded = gameObject.GetComponent<Gun>().canBeUsed;
             if (!gunLoaded)
@@ -49,7 +52,7 @@ public class Player_Charger_Room : MonoBehaviour
         }
 
         //if everything is fine make gun usable.
-        if (gunIsReady && canCharge && Input.GetKeyDown("space"))
+        if (gunIsReady && canCharge && Input.GetKeyDown("e"))
         {
             gameObject.GetComponent<Gun>().canBeUsed = true;
             thereIsGun = false;
@@ -62,6 +65,7 @@ public class Player_Charger_Room : MonoBehaviour
     {
         if (other.tag == "Charger")
         {
+            AudioSource.PlayClipAtPoint(arriveRoom, audioPos);
             canCharge = true;
         }
     }

@@ -6,9 +6,11 @@ using UnityEngine.SceneManagement;
 public class MenuButtons : MonoBehaviour
 {
 
+    public GameObject levelCanvas;
+
     public void StartGame()
     {
-        SceneManager.LoadScene("Milja2");
+        levelCanvas.SetActive(true); 
     }
 
     public void Quit()
