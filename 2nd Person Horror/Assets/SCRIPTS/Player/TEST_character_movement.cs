@@ -28,7 +28,11 @@ public class TEST_character_movement : MonoBehaviour
         playerRB = GetComponent<Rigidbody>();
         if(PlayerPrefs.GetInt("difficulty",0)==0)
         {
-            moveSpeed = 82f;
+            moveSpeed = 85f;
+        }
+        else
+        {
+            moveSpeed = 70f;
         }
     }
 
