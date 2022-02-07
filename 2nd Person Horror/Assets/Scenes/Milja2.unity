@@ -580,6 +580,20 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5982051376811726572, guid: 8c8f677fb0303094e8ba3d9f71af2abf, type: 3}
   m_PrefabInstance: {fileID: 1397612606}
   m_PrefabAsset: {fileID: 0}
+--- !u!136 &766644013
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 766644003}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 1.0321844
+  m_Height: 7.1461267
+  m_Direction: 1
+  m_Center: {x: -0.58445215, y: 3.0730634, z: 0.0020196438}
 --- !u!1001 &778821395
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -814,6 +828,29 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+<<<<<<< HEAD
+=======
+    - target: {fileID: 1680392101926828023, guid: bbcd0afd1f28afd42a2a37c372dbf45e, type: 3}
+      propertyPath: m_Size.x
+      value: 1.4761528
+      objectReference: {fileID: 0}
+    - target: {fileID: 1680392101926828023, guid: bbcd0afd1f28afd42a2a37c372dbf45e, type: 3}
+      propertyPath: m_Size.y
+      value: 1.6536552
+      objectReference: {fileID: 0}
+    - target: {fileID: 1680392101926828023, guid: bbcd0afd1f28afd42a2a37c372dbf45e, type: 3}
+      propertyPath: m_Center.x
+      value: -0.04539689
+      objectReference: {fileID: 0}
+    - target: {fileID: 1680392101926828023, guid: bbcd0afd1f28afd42a2a37c372dbf45e, type: 3}
+      propertyPath: m_Center.y
+      value: 0.32682738
+      objectReference: {fileID: 0}
+    - target: {fileID: 1680392101926828023, guid: bbcd0afd1f28afd42a2a37c372dbf45e, type: 3}
+      propertyPath: m_Center.z
+      value: -0.3624545
+      objectReference: {fileID: 0}
+>>>>>>> parent of 4912194 (Merge branch 'miksu')
     - target: {fileID: 7464905738284131501, guid: bbcd0afd1f28afd42a2a37c372dbf45e, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -932,6 +969,10 @@ PrefabInstance:
     - target: {fileID: 5982051376811726563, guid: 8c8f677fb0303094e8ba3d9f71af2abf, type: 3}
       propertyPath: m_Size.z
       value: 1.7657032
+      objectReference: {fileID: 0}
+    - target: {fileID: 5982051376811726563, guid: 8c8f677fb0303094e8ba3d9f71af2abf, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5982051376811726563, guid: 8c8f677fb0303094e8ba3d9f71af2abf, type: 3}
       propertyPath: m_Center.x
@@ -1481,6 +1522,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameOverCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 158713769253199491, guid: 40d51bde5db814545a3c73e917b39baf, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 158713769253199518, guid: 40d51bde5db814545a3c73e917b39baf, type: 3}
+      propertyPath: m_SortingOrder
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 158713769253199519, guid: 40d51bde5db814545a3c73e917b39baf, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -1638,6 +1687,14 @@ PrefabInstance:
     - target: {fileID: 6608244357356909797, guid: af9194b2706aec94b87b503740638efb, type: 3}
       propertyPath: m_Name
       value: Map_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6811154499182712189, guid: af9194b2706aec94b87b503740638efb, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -5.87
+      objectReference: {fileID: 0}
+    - target: {fileID: 6811154499182712189, guid: af9194b2706aec94b87b503740638efb, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.98
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: af9194b2706aec94b87b503740638efb, type: 3}
