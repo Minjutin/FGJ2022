@@ -8,7 +8,7 @@ public class Text_change : MonoBehaviour
 
     Text myText;
     public GameObject player;
-    
+
     void Start()
     {
         myText = GetComponent<Text>();

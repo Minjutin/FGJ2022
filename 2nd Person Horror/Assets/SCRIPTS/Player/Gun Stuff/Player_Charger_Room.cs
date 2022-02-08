@@ -6,6 +6,7 @@ public class Player_Charger_Room : MonoBehaviour
 {
     //whenever you arrive in charger room this will be true.
     public bool canCharge = false;
+    public GameObject electricity;
 
     [SerializeField] Vector3 audioPos;
     [SerializeField] AudioClip arriveRoom;
@@ -65,6 +66,7 @@ public class Player_Charger_Room : MonoBehaviour
     {
         if (other.tag == "Charger")
         {
+            electricity.SetActive(true);
             AudioSource.PlayClipAtPoint(arriveRoom, audioPos);
             canCharge = true;
         }
@@ -75,6 +77,7 @@ public class Player_Charger_Room : MonoBehaviour
     {
         if (other.tag == "Charger")
         {
+            electricity.SetActive(false);
             canCharge = false;
         }
     }
